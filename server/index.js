@@ -8,10 +8,14 @@ let express = require('express'),
 const crypto = require('crypto');
 const path = require('path');
 
-mongoose.connect('mongodb://admin:admin123@ds137040.mlab.com:37040/car_rental',{useNewUrlParser:true},(err)=>{
+mongoose.connect('mongodb://localhost:27017/car_rental',{useNewUrlParser:true},(err)=>{
     if(!err) console.log("Connection succeeded!");
     else console.log("Connection not successful!");
 })
+// mongoose.connect('mongodb://admin:admin123@ds137040.mlab.com:37040/car_rental',{useNewUrlParser:true},(err)=>{
+//     if(!err) console.log("Connection succeeded!");
+//     else console.log("Connection not successful!");
+// })
 mongoose.Promise = global.Promise;
 
 //Adding body parser for handling request and response objects.

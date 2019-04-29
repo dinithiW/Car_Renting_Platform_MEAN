@@ -1,0 +1,28 @@
+.navbar-default{
+  background:#000000;
+  color: #ffff;
+}
+.btn{
+
+  margin-left: 20px;
+}
+.navbar-nav li a,.navbar-brand{
+  color: #ffff;
+}
+.dropdown-menu > li >a{
+  color: #000000;
+}
+.dropdown-menu > li >a:focus{
+  background-color: #000000;
+}
+.dropdown-menu > li >a:hover{
+  background-color:black;
+  color: #ffff;
+}
+.dropdown-toggle:active{
+  background: #ffff;
+}
+.navbar-default .navbar-nav > .open > a{
+  background: #ffff;
+  color: #000000
+}

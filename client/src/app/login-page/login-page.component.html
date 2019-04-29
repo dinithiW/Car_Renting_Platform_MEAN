@@ -1,0 +1,48 @@
+<div class="rows">
+<div class="container row">
+    <div class="col s12">
+      <div class="card z-depth-2">
+        <div class="card-content white-text">
+          <div class="row">
+            <div class="col s12">
+      <form id="Login" (ngSubmit)="onSignIn(f)" #f="ngForm">
+          <div class="row">
+              <ul class="tabs teal">
+                  <li class="tab col s12"><a class="white-text active" href="#login">Login</a></li>
+                  </ul>
+          </div>
+          <p>
+              <ngb-alert *ngIf=status type="danger">
+                {{status}}
+              </ngb-alert>
+            </p>
+
+            <div class="row">
+                <div class="input-field col s12">
+              <input type="email" class="form-control" name ="email" ngModel id="email" placeholder="Email Address">
+          </div>
+          </div>
+
+          <div class="row">
+              <div class="input-field col s12">
+              <input type="password" class="form-control" id="password" ngModel name="password" placeholder="Password">
+              </div>
+          </div>
+          <div class="row">
+              <div class="input-field col s12">
+          <a href="#">Forgot password?</a>
+          </div>
+      </div>
+      <div class="row">
+          <div class="input-field col s12">
+          <button type="submit" class="btn left">Login</button>
+          <a class="btn right" [routerLink]="['/register']">Register</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>

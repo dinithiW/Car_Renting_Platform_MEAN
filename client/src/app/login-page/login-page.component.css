@@ -1,0 +1,14 @@
+.rows{
+    background-image:url("../../assets/images/HomePageBackround.jpg");background-repeat:no-repeat; background-position:center; background-size:cover;height: 800px;width: 100%;padding-top:50px;
+}
+.container
+{
+	width: 400px;
+	
+}
+
+.input-field
+{
+    margin-top: 0;
+    margin-bottom: 0;
+}

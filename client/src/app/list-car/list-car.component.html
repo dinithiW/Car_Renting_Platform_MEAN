@@ -1,0 +1,177 @@
+<app-navbar></app-navbar>
+<div class="comtainer ">
+  <form [formGroup]="registerForm" (ngSubmit)="addCar()">
+      <div class="form-row">
+          <legend><label class="form-header"> Let's get started </label></legend>
+      </div>
+      <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputFName">Car Model Name</label>
+            <input type="text" class="form-control" id="inputCarName" placeholder="Car Name" formControlName="carName" [ngClass]="{ 'is-invalid': submitted && f.carName.errors }" [(ngModel)]="oldCar.carName">
+            <div *ngIf="submitted && f.carName.errors" class="invalid-feedback">
+                <div *ngIf="f.carName.errors.required">Car Name is required</div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputLName">Car Model Year</label>
+            <input type="text" class="form-control" id="carYear" placeholder="carYear" formControlName="carYear" [ngClass]="{ 'is-invalid': submitted && f.carYear.errors }" [(ngModel)]="oldCar.carYear">
+            <div *ngIf="submitted && f.carYear.errors" class="invalid-feedback">
+                <div *ngIf="f.carYear.errors.required">Car Year is required</div>
+            </div>
+          </div>
+        </div>
+
+      <div class="form-group">
+        <label for="inputAddress">Car rental price per Day</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="carPrice" formControlName="carPrice" [ngClass]="{ 'is-invalid': submitted && f.carPrice.errors }" [(ngModel)]="oldCar.carPrice">
+        <div *ngIf="submitted && f.carPrice.errors" class="invalid-feedback">
+            <div *ngIf="f.carPrice.errors.required">Rental Price is required</div>
+            <div *ngIf="f.carPrice.errors.pattern">Rental Price should be Number</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputAddress2">Address 2</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" formControlName="address2">
+      </div>
+
+      <div class="form-group ">
+        <label for="inputFName">Description</label>
+        <textarea name="" id="" cols="30" rows="2" class="form-control"   placeholder="Description" formControlName="description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" [(ngModel)]="oldCar.description"> ></textarea>
+        <!-- <input type="text" class="form-control" id="inputCarName" placeholder="Car Name" formControlName="carName" [ngClass]="{ 'is-invalid': submitted && f.carName.errors }"> -->
+        <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+            <div *ngIf="f.description.errors.required">Car Name is required</div>
+        </div>
+      </div>
+      <div class="form-group ">
+        <label for="inputFName">Features</label>
+        <textarea name="" id="" cols="30" rows="2" class="form-control"   placeholder="features" formControlName="features" [ngClass]="{ 'is-invalid': submitted && f.features.errors }" [(ngModel)]="oldCar.features"> ></textarea>
+        <!-- <input type="text" class="form-control" id="inputCarName" placeholder="Car Name" formControlName="carName" [ngClass]="{ 'is-invalid': submitted && f.carName.errors }"> -->
+        <div *ngIf="submitted && f.features.errors" class="invalid-feedback">
+            <div *ngIf="f.carName.errors.required">Features are required</div>
+        </div>
+      </div>
+      <div class="form-group ">
+        <label for="inputFName">Parking Details</label>
+        <textarea name="" id="" cols="30" rows="2" class="form-control"   placeholder="Parking Details" formControlName="parkingDetails" [ngClass]="{ 'is-invalid': submitted && f.parkingDetails.errors }" [(ngModel)]="oldCar.parkingDetails"> ></textarea>
+        <!-- <input type="text" class="form-control" id="inputCarName" placeholder="Car Name" formControlName="carName" [ngClass]="{ 'is-invalid': submitted && f.carName.errors }"> -->
+        <div *ngIf="submitted && f.parkingDetails.errors" class="invalid-feedback">
+            <div *ngIf="f.parkingDetails.errors.required">Parking Details required</div>
+        </div>
+      </div>
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="dailyDistance">Daily disatance in miles</label>
+        <input type="text" class="form-control" id="inputZip" formControlName="dailyDistance" [ngClass]="{ 'is-invalid': submitted && f.dailyDistance.errors }" [(ngModel)]="oldCar.dailyDistance">
+        <div *ngIf="submitted && f.dailyDistance.errors" class="invalid-feedback">
+            <div *ngIf="f.dailyDistance.errors.pattern">Daily disatance is required</div>
+            <div *ngIf="f.dailyDistance.errors.required">Daily disatance is should be Number </div>
+        </div>
+    </div>
+        <div class="form-group col-md-4">
+            <label for="weeklyDistance">Weekly disatance in miles</label>
+            <input type="text" class="form-control" id="inputZip" formControlName="weeklyDistance" [ngClass]="{ 'is-invalid': submitted && f.weeklyDistance.errors }" [(ngModel)]="oldCar.weeklyDistance">
+            <div *ngIf="submitted && f.weeklyDistance.errors" class="invalid-feedback">
+                <div *ngIf="f.weeklyDistance.errors.pattern">disatance is required</div>
+                <div *ngIf="f.weeklyDistance.errors.required">disatance is should be Number </div>
+            </div>
+          </div>
+      <div class="form-group col-md-4">
+        <label for="inputZip">Monthly disatance in miles</label>
+        <input type="text" class="form-control" id="monthlyDistance" formControlName="monthlyDistance" [ngClass]="{ 'is-invalid': submitted && f.monthlyDistance.errors }" [(ngModel)]="oldCar.monthlyDistance">
+        <div *ngIf="submitted && f.monthlyDistance.errors" class="invalid-feedback">
+            <div *ngIf="f.monthlyDistance.errors.pattern">Monthly distance is required</div>
+            <div *ngIf="f.monthlyDistance.errors.required">Monthly distance is should be Number </div>
+        </div>
+      </div>
+
+
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="milage">Milage (MPG)</label>
+        <input type="text" class="form-control" id="milage" formControlName="milage" [ngClass]="{ 'is-invalid': submitted && f.milage.errors }" [(ngModel)]="oldCar.milage">
+        <div *ngIf="submitted && f.milage.errors" class="invalid-feedback">
+        <div *ngIf="f.milage.errors.pattern">Milage should be Number</div>
+            <div *ngIf="f.milage.errors.required"> Car milage is required </div>
+            </div>
+    </div>
+    <div class="form-group col-md-3">
+        <label for="fuelType">Fuel type</label>
+        <input type="text" class="form-control" id="fuelType" formControlName="fuelType" [ngClass]="{ 'is-invalid': submitted && f.fuelType.errors }" [(ngModel)]="oldCar.fuelType">
+        <div *ngIf="submitted && f.fuelType.errors" class="invalid-feedback">
+        <div *ngIf="f.fuelType.errors.pattern">Fuel type is required</div>
+        </div>
+      </div>
+    <div class="form-group col-md-3">
+        <label for="doors">No. of Doors</label>
+        <input type="text" class="form-control" id="doors" formControlName="doors" [ngClass]="{ 'is-invalid': submitted && f.doors.errors }" [(ngModel)]="oldCar.doorCount">
+        <div *ngIf="submitted && f.doors.errors" class="invalid-feedback">
+        <div *ngIf="f.doors.errors.pattern"> Door count  should be Number </div>
+        <div *ngIf="f.doors.errors.required">Door count is required </div>
+        </div>
+      </div>
+    <div class="form-group col-md-3">
+        <label for="inputFName">No. of seats</label>
+        <input type="text" class="form-control" id="seats" formControlName="seats" [ngClass]="{ 'is-invalid': submitted && f.seats.errors }" [(ngModel)]="oldCar.seatCount">
+        <div *ngIf="submitted && f.seats.errors" class="invalid-feedback">
+        <div *ngIf="f.seats.errors.pattern">Seat count should be Number</div>
+        <div *ngIf="f.seats.errors.required">Seat count is required  </div>
+        </div>
+      </div>
+</div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">City</label>
+          <input type="text" class="form-control" id="inputCity" formControlName="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }"[(ngModel)]="oldCar.city">
+          <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+              <div *ngIf="f.city.errors.required">City is required</div>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">State</label>
+            <div ng-app="myApp" ng-controller="myCtrl">
+              <select class="form-control" formControlName="state" [ngClass]="{ 'is-invalid': submitted && f.state.errors }" [(ngModel)]="oldCar.state">
+                <option selected>Choose ...</option>
+                <option *ngFor="let item of states">{{item}}</option>
+              </select>
+            </div>
+            <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                <div *ngIf="f.state.errors.required">State is required</div>
+            </div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Zip</label>
+          <input type="text" class="form-control" id="inputZip" formControlName="zip" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" [(ngModel)]="oldCar.zip">
+          <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
+              <div *ngIf="f.zip.errors.pattern">Zipcode is required</div>
+              <div *ngIf="f.zip.errors.required">Zipcode is should be Number </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+      <input type="file" (change)="onFileUpload($event)" >
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck" formControlName="alerts" [ngClass]="{ 'is-invalid': submitted && f.alerts.errors }">
+          <label class="form-check-label" for="gridCheck">
+            I agree to terms and conditions
+          </label>
+        </div>
+        <div *ngIf="submitted && f.alerts.errors" class="invalid-feedback">
+              <div *ngIf="f.alerts.errors.required">Please accept the terms and conditions!</div>
+          </div>
+          <button type="submit">Signup</button>
+      </div>
+
+      <div class="form-group btn-group">
+          <span><button class="btn btn-primary btn-lg">Submit</button></span> &nbsp; &nbsp;
+
+        </div>
+
+
+    </form>
+    <span><button class="btn btn-primary btn-lg center" (click)="deleteCar()" *ngIf="id">Delete</button></span>
+</div>

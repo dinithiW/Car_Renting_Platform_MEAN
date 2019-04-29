@@ -1,0 +1,124 @@
+<app-navbar></app-navbar>
+<div class="container ">
+
+
+
+  <div class="jumbotron  " >
+    <div class="container">
+      <img [src]="imgPath" class="img1"  />
+    </div>
+
+  </div>
+
+
+
+      <div class="col-sm-8">
+        <br>
+        <p class="carDescription"> THE CAR</p>
+        <span><span class="carLabel names"><b> {{carName}} </b></span>
+          <span class="desc-f20-B names" ><b>{{carYear}}</b></span>
+        </span>
+        
+       
+        
+        <div class="padding-right">
+            <i class="stroopwafel"></i>
+            <span class="padding-right"> <span class="glyphicon glyphicon-oil"></span> <span class="carDescription"> &nbsp;&nbsp; {{milage}} MPG</span></span>
+
+            <span class="padding-right"> <span class="glyphicon glyphicon-oil"></span> <span class="carDescription">  &nbsp;&nbsp;{{fuelType}}</span></span>
+        </div>
+        <div class="padding-right">
+            <span class="padding-right"> <span class="glyphicon glyphicon-compressed"></span> <span class="carDescription">&nbsp;&nbsp; {{doorCount}}  Doors</span></span>
+
+            <span class="padding-right"> <span class="glyphicon glyphicon-bed"></span> <span class="carDescription">&nbsp;&nbsp; {{seatCount}} Seats</span></span>
+        </div>
+
+        <hr class="half-rule"/>
+
+        <div class="">
+        <p class="carDescription">DESCRIPTION</p>
+        <p class="carDescription">{{description}}</p>
+        <br>
+      </div>
+      <hr class="half-rule"/>
+
+    <div>
+        <p class="carDescription">FEATURES</p>
+        <p> {{features}}</p>
+      </div>
+      <hr class="half-rule"/>
+      <div>
+          <p class="carDescription">PARKING DETAILS</p>
+          <p> {{parkingDetails}}</p>
+        </div>
+       
+          <hr class="half-rule"/>
+      </div>
+      <div class="col-sm-4">
+        <br>
+        <span>
+            <span class="price-style">$</span>
+        <span class="price-style"> <b>{{price}}</b></span>
+        <span class="currency-style" >per day</span>
+        </span>
+        <hr class="half-rule"/>
+        <div class="" *ngIf="newObj._id != carObj.userId">
+            <form  (ngSubmit)="proceed(f)" #f="ngForm">
+          <div>
+
+            <div class="bookingDetailsHeading" > <label for="" >Trip Start </label> </div>
+            <span class="bookingDetailsHeading">
+            <input class="form-control dateStyle" type="date" name="stDate" ngModel id="stdt">
+            <input class="form-control timeStyle" type="time" name="stTime" ngModel id="stTime">
+          </span>
+          </div>
+          <div class="bookingDetailsHeading" > <label for="" >Trip End</label> </div>
+          <span class="bookingDetailsHeading">
+          <input class="form-control dateStyle" type="date" name="endDate" ngModel id="example-date-input">
+          <input class="form-control timeStyle" type="time" name="endTime" ngModel id="example-time-input">
+        </span>
+        <div>
+          <br>
+            <button type="submit" class="btn btn-primary   btn-block">Proceed to Checkout</button>
+            <div *ngIf=condition>Start date is greater than End date</div>
+        </div>
+        </form>
+      </div>
+        <hr class="half-rule"/>
+        <div id="map">
+          <agm-map [latitude]="latitude" [longitude]="longitude">
+            <agm-marker  [latitude]="latitude" [longitude]="longitude" ></agm-marker>
+
+          </agm-map>
+
+
+
+        </div>
+        <hr class="half-rule"/>
+        <p class="carDescription">DISTANCE INCLUDED</p>
+        <div class="reservationDetails">
+          <div><b>Day</b></div>
+          <div><b>{{dailyDistance}} mi</b></div>
+        </div>
+        <div class="reservationDetails">
+          <div><b>Week</b></div>
+          <div> <b>{{weeklyDistance}} mi </b></div>
+        </div>
+        <div class="reservationDetails">
+          <div><b>Month</b></div>
+          <div><b>{{monthlyDistance}} mi</b></div>
+        </div>
+        <hr class="half-rule"/>
+        <div class="ownerDetails">
+
+            <div>
+               <div><p class="carDescription">OWNED BY</p> </div> <br>
+               <div> <p class="carDescription names"> <b>{{ownerName}} </b></p>
+                <ngb-rating  [readonly]="readonly" [(rate)]="rating" class="starRate" readonly="true"></ngb-rating>
+              </div>
+            </div>
+            <div > <img class="ownerImg" [src]="ownerImg" alt=""></div>
+          </div>
+
+      </div>
+    </div>

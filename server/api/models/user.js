@@ -23,7 +23,7 @@ let UserSchema = new Schema({
     },
     Address: {
         type: String,
-        required: "Address1 is required"
+        required: "Address is required"
     },
     City: {
         type: String,

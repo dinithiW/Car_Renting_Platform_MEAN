@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" [routerLink]="['/home']">Car Rental Application</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right" >
+        <li><a [routerLink]="['/home']">Home </a></li>
+        <li><a   routerLink="/cardetails">List your car</a></li>
+        <li class="dropdown" >
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome {{user}}
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/bookings">My bookings</a></li>
+            <li><a routerLink="/account-settings">Account Settings</a></li>
+            <li><a routerLink="/my-cars">My Cars</a></li>
+            <li><a routerLink="/car-trips">My Car Trips</a></li>
+            <li><a href="#" (click)="logout()">Logout</a></li>
+
+          </ul>
+        </li>
+    </ul>
+  </div>
+</nav>

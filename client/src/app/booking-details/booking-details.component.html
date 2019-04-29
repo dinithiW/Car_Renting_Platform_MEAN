@@ -1,0 +1,134 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h2> Your ride is ready!!!</h2>
+</div>
+
+<div class="invoice-box">
+  <table cellpadding="0" cellspacing="0">
+      <tr class="top">
+          <td colspan="2">
+              <table>
+                  <tr>
+                      <td class="title">
+                          <img src="https://www.sparksuite.com/images/logo.png" style="width:100%; max-width:300px;">
+                      </td>
+
+                      <td>
+                          Booking Id : {{ bookingObj._id }}<br>
+                          Created: {{bookingObj.created_date}}<br>
+                      </td>
+                  </tr>
+              </table>
+          </td>
+      </tr>
+
+      <tr class="information">
+          <td colspan="2">
+              <table>
+                  <tr>
+
+
+                      <td>
+                          {{userObj.FirstName}} {{userObj.LastName}}<br>
+                          {{userObj.City}}<br>
+                          {{userObj.Email}}
+                      </td>
+                  </tr>
+              </table>
+          </td>
+      </tr>
+
+      <tr class="heading">
+          <td colspan="2">
+              Car Details
+          </td>
+
+
+      </tr>
+
+      <tr class="item">
+          <td>
+              Car Name
+          </td>
+
+          <td>
+              {{carObj.carName}}
+          </td>
+      </tr>
+
+
+
+      <tr class="item">
+          <td>
+              Owner Name
+          </td>
+
+          <td>
+              {{ownerObj.FirstName}} {{ownerObj.LastName}}
+          </td>
+      </tr>
+
+      <tr class="item">
+          <td>
+              Booking Start Time
+          </td>
+
+          <td>
+              {{bookingObj.booking_startTime}}
+          </td>
+      </tr>
+
+
+      <tr class="item">
+        <td>
+            Booking End Time
+        </td>
+
+        <td>
+            {{bookingObj.booking_endTime}}
+        </td>
+      </tr>
+
+      <tr class="item">
+        <td>
+            Booking Start Time
+        </td>
+
+        <td>
+            {{bookingObj.booking_startTime}}
+        </td>
+    </tr>
+
+
+
+
+      <tr class="total">
+          <td>Total Amount</td>
+
+          <td>
+             {{bookingObj.booking_price}}
+          </td>
+      </tr>
+
+      <tr *ngIf="loggedInUser == carObj.userId">
+
+        <td > Rate the User </td>
+        <td>
+        <ngb-rating [(rate)]="selected1" (rateChange)="onClickUser($event)" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="false"   [max]=5></ngb-rating>
+            {{selected1}}
+
+        </td>
+      </tr>
+      <tr *ngIf="loggedInUser == bookingObj.userId">
+        <td > Rate the Owner </td>
+        <td>
+        <ngb-rating [(rate)]="selected2" (rateChange) = 'onClickOwner($event)' (hover)="hovered=$event" (leave)="hovered=0" [readonly]="false"   [max]=5></ngb-rating>
+            {{selected2}}
+
+        </td>
+
+      </tr>
+
+  </table>
+
+</div>

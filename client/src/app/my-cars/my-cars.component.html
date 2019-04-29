@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+      <a class=" col-sm-3 card" [routerLink]="['/listCar',car._id]" *ngFor="let car of cars">
+        <div class="card-header">
+            <img class="card-img-top" [src]=car.carImagePath alt="Card image cap">
+            <span class="badge badge-light">${{car.carPrice}}/<span class="small">day</span></span>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">{{car.carName}}<span class="year small" id="year">{{car.carYear}}</span></h2>
+          <div class="stars"><p>{{car.carTrips}} trips</p></div>
+        </div>
+      </a>
+  </div>
+</div>
