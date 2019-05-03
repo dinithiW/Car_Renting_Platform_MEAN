@@ -34,6 +34,7 @@
     "npn-slider": "^1.2.0",
     "popper.js": "^1.12.3",
     "rxjs": "~6.3.3",
+    "tar": "^4.4.8",
     "webpack": "^4.27.0",
     "webpack-dev-server": "^3.3.1",
     "zone.js": "~0.8.26"
