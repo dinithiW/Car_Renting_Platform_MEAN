@@ -28,7 +28,7 @@
     "core-js": "^2.5.4",
     "emailjs": "^2.2.0",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.0",
+    "jquery": "^3.4.1",
     "moment": "^2.22.2",
     "nodemailer": "^4.7.0",
     "npn-slider": "^1.2.0",
