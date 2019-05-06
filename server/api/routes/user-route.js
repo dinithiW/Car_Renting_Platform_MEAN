@@ -17,5 +17,8 @@ module.exports = function (app) {
     
     app.route('/users/email/:emailId')
         .get(userController.findByEmail)
+    
+        app.route('/users/sms')
+        .post(userController.sendSMS)
         
 };        
