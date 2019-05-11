@@ -1,136 +1,105 @@
 <app-navbar></app-navbar>
-<div class="jumbotron text-center">
-  <h1>Way better than a rental car</h1>
-  <p>Book unforgettable cars from local hosts around the world</p>
-  <a class="btn btn-default btn-blue" [routerLink]="['/cars']" >Rent a car</a>
-  <a class="btn btn-default btn-red" [routerLink]="['/listCar']">List a car</a>
-</div>ng
-<div class="container-fluid">
-    <div class="row body-2">
-      <h1>Skip the rental counter</h1>
-      <div class="col-sm-6">
-        <h4>THE CAR YOU WANT</h4>
-        <p>
-            Choose from over 800 unique makes and models,
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center teal-text text-lighten-2">Miles to Smiles :)</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Book Unforgettable Cars from us!</h5>
+      </div>
+      <div class="row center">
+        <a [routerLink]="['/cars']" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Rent A Car</a>
+        <a [routerLink]="['/listCar']" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">List A Car</a>
+      </div>
+      <br><br>
 
-        </p>
-        <p>
-            from affordable daily drivers to rare specialty cars.
-        </p>
-      </div>
-      <div class="col-sm-6 ">
-        <h4>WHERE YOU WANT IT</h4>
-        <p>Pick up the car or get it delivered, </p>
-        <p>wherever you need it, up to 35% less than traditional agencies.</p>
-      </div>
-      <a class="btn btn-default btn-lg btn-body-2">Book a perfect car</a>
     </div>
-</div>
-<div class="container-fluid text-center bg-grey body-4">
-    <h2>We are present in</h2>
-    <div class="row text-center">
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="../../assets/images/boston.jpg" alt="boston">
-          <p><strong>Boston</strong></p>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="../../assets/images/newyork.jpg" alt="New York">
-          <p><strong>New York</strong></p>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="../../assets/images/sanfransisco.jpg" alt="San Francisco">
-          <p><strong>San Francisco</strong></p>
-        </div>
-      </div>
   </div>
-<div class="container-fluid body-3 bg-white">
-    <div class="row content-shrink">
-      <h1>The Car that pays for itself</h1>
-      <p>Make a dent in your monthly car payments — on average, Turo hosts can cover their payments by sharing their cars just nine days per month</p>
-      <p>As a host, you’re covered by $1 million in liability insurance and your car is protected against physical damage. Or bring your own commercial rental insurance and take a bigger piece of the pie.</p>
-      <a class="btn btn-default btn-lg btn-body-3">List you car</a>
-    </div>
 </div>
 
+<div class="container">
+  <h4 class="header center teal-text light">Where we exist</h4>
+    <div class="section">
 
-<footer class="page-footer font-small indigo">
-
-
-    <div class="container text-center text-md-left">
-
-
+      <!--   Icon Section   -->
       <div class="row">
+       
 
-
-        <div class="col-md-4 mx-auto">
-
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Top Cities</h5>
-
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Boston</a>
-            </li>
-            <li>
-              <a href="#!">Newyork</a>
-            </li>
-            <li>
-              <a href="#!">Chicago</a>
-            </li>
-            <li>
-              <a href="#!">San Francisco</a>
-            </li>
-          </ul>
-
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image">
+            <img src="../../assets/images/Colombo.jpg">
+            <span class="card-title">Colombo</span>
+          </div>
+          <div class="card-content">
+            <p class="light">That heritage is reflected in its its architecture, mixing colonial buildings with high-rises and shopping malls.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">Book Now</a>
+          </div>
         </div>
-
-        <div class="col-md-4 mx-auto">
-
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Learn More</h5>
-
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">How Car Rental Works</a>
-            </li>
-            <li>
-              <a href="#!">Policies</a>
-            </li>
-            <li>
-              <a href="#!">Traveler FAQs</a>
-            </li>
-          </ul>
-
+      </div>
+  
+      <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="../../assets/images/Kandy.jpg">
+              <span class="card-title">Kandy</span>
+            </div>
+            <div class="card-content">
+              <p class="light">Kandy, nominated by the UNESCO as a world heritage city, is of fascinating variety In climate and landscape, and rich cultural heritage.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Book Now</a>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4 mx-auto">
+    
 
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Talk to us</h5>
-
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Contact Us</a>
-            </li>
-            <li class="social-icons">
-              <a href="#!"><fa name="facebook-square"></fa></a>
-              <a href="#!"><fa name="twitter-square "></fa></a>
-              <a href="#!"><fa name="instagram"></fa></a>
-            </li>
-          </ul>
-
-        </div>
-
+        <div class="col s12 m4">
+            <div class="card">
+              <div class="card-image">
+                <img src="../../assets/images/Galle.jpg">
+                <span class="card-title">Galle</span>
+              </div>
+              <div class="card-content">
+                <p class="light">The seaside town of Galle is 116 Km away from Colombo by road or rail, down the south coast of Sri Lanka.</p>
+              </div>
+              <div class="card-action">
+                <a href="#">Book Now</a>
+              </div>
+            </div>
+          </div>
+      
       </div>
 
-
     </div>
+  </div>
 
 
-  </footer>
-
-
+  <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">SL Rent A Car Services</h5>
+            <p class="grey-text text-lighten-4">Renting Cars made simple!</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Contact Us</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" >+94 777 123 123</a></li>
+              <li><a class="grey-text text-lighten-3" >slrent@gmail.com</a></li>
+              <li><a class="grey-text text-lighten-3">facebook.com/slrent</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2019 Copyright Advanced Web Module
+        <a class="grey-text text-lighten-4 right" href="#!">Group #24</a>
+        </div>
+      </div>
+    </footer>
+        
 
