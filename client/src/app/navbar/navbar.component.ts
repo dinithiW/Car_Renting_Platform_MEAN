@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.services';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-navbar',
@@ -11,16 +12,12 @@ export class NavbarComponent implements OnInit {
   user = '';
   constructor(private router:Router) { }
 
-  ngOnInit() {
-    console.log(JSON.parse(localStorage.currentUser)[0].FirstName);
+   ngOnInit() {
+    console.log(JSON.parse(localStorage.currentUser)[0].Name);
 
-    this.user = JSON.parse(localStorage.currentUser)[0].FirstName;
+    this.user = JSON.parse(localStorage.currentUser)[0].Name;
     console.log(this.user);
   }
-  /**
-   * Method Name:- Logout
-   * Author:- Rajat Acharya
-   */
   logout() {
     localStorage.clear();
     this.router.navigate(['/'])
