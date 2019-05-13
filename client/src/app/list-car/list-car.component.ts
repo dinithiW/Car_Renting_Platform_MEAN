@@ -6,6 +6,7 @@ import { JsonPipe } from '@angular/common';
 import { FileService } from '../services/files.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GoogleMapsAPIWrapper, MapsAPILoader } from '@agm/core';
+
 @Component({
   selector: 'app-list-car',
   templateUrl: './list-car.component.html',
@@ -63,28 +64,27 @@ export class ListCarComponent implements OnInit {
           console.log(this.oldCar);
          //this.populateCarsDetails(this.oldCar);
          });
+         
+      
     }
 
     this.registerForm = this.formBuilder.group({
       carName: ['', Validators.required],
+      carYear : ['', [Validators.required]],
+      carPrice: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+      carDescription:['',[Validators.required]],
+      carFeatures:['',[Validators.required]],
+      carDailyDistance: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+      carFuelType:['',[Validators.required]],
+      carDoorCount:['', [Validators.required, Validators.pattern('[0-9]*')]],
+      carSeatCount:['', [Validators.required, Validators.pattern('[0-9]*')]],
+      address: ['', [Validators.required]],
       city: ['', [Validators.required]],
       state: ['', [Validators.required]],
-      carPrice: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      carYear : ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      address2: ['', [Validators.required]],
-      zip: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      alerts: ['', [Validators.required]],
-      description:['',[Validators.required]],
-      parkingDetails :['',[Validators.required]],
-      features:['',[Validators.required]],
-      dailyDistance: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      weeklyDistance:['', [Validators.required, Validators.pattern('[0-9]*')]],
-      monthlyDistance:['', [Validators.required, Validators.pattern('[0-9]*')]],
-      milage:['', [Validators.required, Validators.pattern('[0-9]*')]],
-      doors:['', [Validators.required, Validators.pattern('[0-9]*')]],
-      seats:['', [Validators.required, Validators.pattern('[0-9]*')]],
-      fuelType:['',[Validators.required]],
-  });
+      zip:['', [Validators.required, Validators.pattern('[0-9]*')]]
+      
+    });
+  
   }
 
   //Method to delete a listed a car
@@ -103,10 +103,10 @@ export class ListCarComponent implements OnInit {
       console.log(this.registerForm.invalid);
       return;
     }
-    this.address= this.registerForm.get('address2').value + ','+ this.registerForm.get('city').value +','+ this.registerForm.get('state').value + ',' + this.registerForm.get('zip').value
-    console.log(this.address);
+    const address1= this.registerForm.get('address').value + ','+ this.registerForm.get('city').value +','+ this.registerForm.get('state').value + ',' + this.registerForm.get('zip').value
+    console.log(address1);
 
-    this.getLocation(this.address)
+    //this.getLocation(address1)
     if(this.file){
       console.log(this.user[0]._id);
       this.Files.uploadFile(this.file, this.user[0]._id).then(
@@ -131,34 +131,38 @@ export class ListCarComponent implements OnInit {
       let car = {
         'carName':  this.registerForm.get('carName').value,
         'carYear':  this.registerForm.get('carYear').value,
-        'userId' :  this.user[0]._id,
+        'carId' :  this.user[0]._id,
         'carImagePath':  this.filePath,
         'carPrice': this.registerForm.get('carPrice').value,
-        'description':  this.registerForm.get('description').value,
-        'features':  this.registerForm.get('features').value,
-        'parkingDetails':  this.registerForm.get('parkingDetails').value,
-        'guidelines':  'NO guidelines',
-        'dailyDistance':  this.registerForm.get('dailyDistance').value,
-        'weeklyDistance':  this.registerForm.get('weeklyDistance').value,
-        'monthlyDistance':  this.registerForm.get('monthlyDistance').value,
-        'milage':   this.registerForm.get('milage').value ,
-        'fuelType':  this.registerForm.get('fuelType').value ,
-        'doorCount':this.registerForm.get('doors').value ,
-        'seatCount': this.registerForm.get('seats').value,
-        'address': this.registerForm.get('address2').value,
+        'description':  this.registerForm.get('carDescription').value,
+        'features':  this.registerForm.get('carFeatures').value,
+        'dailyDistance':  this.registerForm.get('carDailyDistance').value,
+        'fuelType':  this.registerForm.get('carFuelType').value ,
+        'doorCount':this.registerForm.get('carDoorCount').value ,
+        'seatCount': this.registerForm.get('carSeatCount').value,
+        'address': this.registerForm.get('address').value,
         'city': this.registerForm.get('city').value,
         'state': this.registerForm.get('state').value,
         'zip':this.registerForm.get('zip').value,
-        'latitude': this.latitude,
-        'longitude':this.longitude
+        //'latitude': this.latitude,
+        //'longitude':this.longitude
        }
       if(this.id){
         console.log("Inside update car");
-        this.carservice.updateCar(car, this.id);
+        this.carservice.updateCar(this.oldCar, this.id);
+        this.router.navigate(['/allCars']).then(()=>{
+          window.location.reload();
+        });
+        
       }
       else{
         console.log("Inside Else");
-      this.carservice.putCar(car);
+        this.carservice.putCar(car);
+        alert('Successfully added');
+        this.router.navigate(['/allCars']).then(()=>{
+          window.location.reload();
+        });
+        
       }
 
   }

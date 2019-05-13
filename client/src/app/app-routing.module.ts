@@ -14,10 +14,11 @@ import { MyCarsComponent } from './my-cars/my-cars.component';
 import { BookingConfirmComponent } from './booking-details/booking-details.component';
 import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 import { CarTripsComponent } from './car-trips/car-trips.component';
+import { AllCarsComponent } from './all-cars/all-cars.component';
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: '', component: LoginPageComponent},
- {path: 'cars', component: CarsComponent},
+  {path: 'cars', component: CarsComponent},
   {path: 'cars/:id', component: CarDetailsComponent},
   {path: 'listCar' , component: ListCarComponent},
   {path: 'listCar/:id' , component: ListCarComponent},
@@ -28,7 +29,10 @@ const routes: Routes = [
   {path: 'booking-confirm/:id' , component: BookingConfirmComponent},
   {path: 'bookings', component: BookingsComponent},
   {path: 'car-trips', component: CarTripsComponent},
+  {path: 'allCars', component: AllCarsComponent},
+  {path: 'allCars/:id' , component: AllCarsComponent},
   {path: '404', component: NotFoundComponentComponent},
+  
  {path: '**', redirectTo: '/404'}
 
 ];

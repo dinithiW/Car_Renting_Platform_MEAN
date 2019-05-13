@@ -77,5 +77,6 @@ export class RegisterComponent implements OnInit {
   }
 
 }
+//#carName [class.is-invalid]="carName.invalid & carName"
 
 

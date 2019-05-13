@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<br>
+<br>
+<br>
+<table class="responsive-table highlight">
+  <thead>
+    <th>Car Name</th>
+    <th>Year</th>
+    <th>Price Per Day</th>
+    <th>Description</th>
+    <th>Features</th>
+    <th>Daily Distance</th>
+    <th>Fuel Type</th>
+    <th>Door Count</th>
+    <th>Seat Count</th>
+    <th>Address</th>
+    <th>City </th>
+    <th>State</th>
+    <th>Zip</th>
+    <th></th>
+    <th></th>
+    
+  </thead >
+  
+  <tbody>
+    <tr *ngFor="let car of cars">
+      <td >{{car[0].carName}}</td>
+      <td>{{car[0].carYear}}</td>
+      <td>{{car[0].carPrice}}</td>
+      <td>{{car[0].description}}</td>
+      <td>{{car[0].features}}</td>
+      <td>{{car[0].dailyDistance}}</td>
+      <td>{{car[0].fuelType}}</td>
+      <td>{{car[0].doorCount}}</td>
+      <td>{{car[0].seatCount}}</td>
+      <td>{{car[0].address}}</td>
+      <td>{{car[0].city}}</td>
+      <td>{{car[0].state}}</td>
+      <td>{{car[0].zip}}</td>
+      <td><a class="btn text-danger" (click)="onEdit(car[0],car[0]._id)"><i class="fa fa-pencil"></i></a></td>
+      <td><a class="btn text-danger" (click)="onDelete(car[0]._id)"><i class="fa fa-trash"></i></a></td>
+      
+    
+  </tbody>
+</table>

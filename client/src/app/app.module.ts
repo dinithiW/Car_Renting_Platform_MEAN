@@ -34,6 +34,7 @@ import { MyCarsComponent } from './my-cars/my-cars.component';
 import { BookingConfirmComponent } from './booking-details/booking-details.component';
 import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 import { CarTripsComponent } from './car-trips/car-trips.component';
+import { AllCarsComponent } from './all-cars/all-cars.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { CarTripsComponent } from './car-trips/car-trips.component';
     BookingConfirmComponent,
     NotFoundComponentComponent,
     CarTripsComponent,
+    AllCarsComponent,
   ],
   imports: [
     BrowserModule,
