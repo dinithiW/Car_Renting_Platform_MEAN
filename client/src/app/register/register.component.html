@@ -1,4 +1,4 @@
-
+<div class="rows">
 <div class="container row">
   <div class="col s12">
     <div class="card z-depth-2">
@@ -13,8 +13,8 @@
           </div>
           <div class="row">
               <div class="input-field col s12">
-                
-                <input type="text" class="form-control" id="inputFname" placeholder="First Name" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                  <label for="inputFname">Name</label>
+                <input type="text" class="form-control" id="inputFname"  formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
                 <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
                 </div>
               </div>
@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="input-field col s12">
               <label for="inputEmail4">Email</label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              <input type="email" class="form-control" id="inputEmail4"  formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
               <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                   <div *ngIf="f.email.errors.required">Email is required</div>
                   <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="input-field col s12">
                   <label for="inputPassword4">Password</label>
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                  <input type="password" class="form-control" id="inputPassword4"  formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
                   <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                       <div *ngIf="f.password.errors.required">Password is required</div>
                       <div *ngIf="f.password.errors.minlength">Password must be atleast 6 characters long</div>
@@ -43,7 +43,7 @@
           <div class="row">
               <div class="input-field col s12">
             <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+            <input type="text" class="form-control" id="inputAddress"  formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
             <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
                 <div *ngIf="f.address.errors.required">Address is required</div>
             </div>
@@ -53,7 +53,7 @@
           <div class="row">
             <div class="input-field col s12">
               <label for="inputCity">City</label>
-              <input type="text" class="form-control" id="inputCity" placeholder="Kandy" formControlName="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+              <input type="text" class="form-control" id="inputCity"  formControlName="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
               <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
                   <div *ngIf="f.city.errors.required">City is required</div>
               </div>
@@ -89,3 +89,4 @@
 </div>
 </div>
 
+</div>
