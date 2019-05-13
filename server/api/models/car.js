@@ -13,6 +13,10 @@ let CarSchema = new Schema({
         type: String,
         required: "Name is required"
     },
+    carYear:{
+        type :String,
+        required : "Year is required"
+    },
     carImagePath: {
         type: String,
         required: "ImagePath is required"
@@ -34,28 +38,25 @@ let CarSchema = new Schema({
         type: String,
         required: "features is required"
     },
-    guidelines: {
-        type: String,
-        required: "guidelines is required"
-    },
+    
     dailyDistance: {
         type: Number,
         required: "dailyDistance is required"
     },
-    userId: {
+    /*userId: {
         type: String,
         required: "userId is required"
-    },
+    },*/
     fuelType: {
         type: String,
         required: "fuelType is required"
     },
     doorCount: {
-        type: String,
+        type: Number,
         required: "doorCount is required"
     },
     seatCount: {
-        type: String,
+        type: Number,
         required: "seatCount is required"
     },
     address:{
@@ -64,7 +65,15 @@ let CarSchema = new Schema({
     },
     city:{
         type: String,
-        required: "address is required"
+        required: "city is required"
+    },
+    state:{
+        type : String,
+        required : "state is required"
+    },
+    zip : {
+        type : Number,
+        required : "zip is required"
     },
 
     /**

@@ -73,6 +73,14 @@ exports.find = function(id, callback){
     Car.findById(id,resultCallback);
 }
 
+exports.findAll = function(callback){
+    let resultCallback = function (err, cars) {
+        throwError(err);
+        callback(cars);
+    };
+    Car.find(resultCallback);
+}
+
 exports.delete = function(id, callback){
     let resultCallback = function (err, car) {
         throwError(err);

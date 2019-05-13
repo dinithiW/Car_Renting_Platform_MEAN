@@ -14,6 +14,10 @@ module.exports = function (app) {
         .put(carController.put)
         .get(carController.find)
         .delete(carController.delete);
+    app.route('/allCars')
+        .get(carController.findAll);
+    app.route('/allCars/:carId')
+        .delete(carController.delete);
 
     
     

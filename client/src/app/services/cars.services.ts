@@ -9,7 +9,7 @@ export class CarsService {
 
   getCars(): Promise<any> {
     let promise = new Promise((resolve, reject) => {
-      this.httpClient.get<Array<any>>('http://localhost:3000/cars')
+      this.httpClient.get<Array<any>>('http://localhost:3000/allCars')//cars
       .subscribe(data => {
         console.log(data as string []);
         resolve(data as string[]);
@@ -33,6 +33,20 @@ export class CarsService {
     });
     return promise;
  }
+
+  getAllCars(): Promise<any> {
+    let promise = new Promise((resolve, reject) => {
+      this.httpClient.get<Array<any>>('http://localhost:3000/allCars')//cars
+      .subscribe(data => {
+        console.log(data as string []);
+        resolve(data as string[]);
+      },
+      error => {
+        reject(error);
+      });
+    });
+    return promise;
+}
 
 
  //Method to get all cars for a particular user
@@ -73,6 +87,7 @@ export class CarsService {
       .subscribe(
           data => {
               console.log('PUT Request is successful ', data);
+    
           },
           error => {
               console.log('Error', error);
@@ -83,7 +98,7 @@ export class CarsService {
   //Method to delete an existing car using car ID
   deleteCar(input){
     let carId = input;
-    this.httpClient.delete('http://localhost:3000/cars/' + carId).
+    this.httpClient.delete('http://localhost:3000/allCars/' + carId).
     subscribe(
       data => {
         console.log('Delete Request is successful ', data);
@@ -95,23 +110,17 @@ export class CarsService {
 
   //Method to insert a new Car object in the DB
   putCar(input) {
-    console.log(  input.latitude);
+    console.log( input.carName);
     this.httpClient.post('http://localhost:3000/cars',
       {
         carName: input.carName,
         carYear: input.carYear,
         carImagePath: input.carImagePath,
-        carTrips: 0,
         userId:  input.userId,
         carPrice: input.carPrice,
         description: input.description,
         features: input.features,
-        parkingDetails: input.parkingDetails,
-        guidelines: input.guidelines,
         dailyDistance: input.dailyDistance,
-        weeklyDistance: input.weeklyDistance,
-        monthlyDistance: input.monthlyDistance,
-        milage:  input.milage,
         fuelType:  input.fuelType,
         doorCount: input.doorCount,
         seatCount: input.seatCount,
@@ -119,8 +128,8 @@ export class CarsService {
         city:input.city,
         state:input.state,
         zip: input.zip,
-        latitude: input.latitude,
-        longitude: input.longitude
+        //latitude: input.latitude,
+        //longitude: input.longitude
       })
       .subscribe(
           data => {

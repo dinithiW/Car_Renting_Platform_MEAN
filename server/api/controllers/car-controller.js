@@ -69,3 +69,11 @@ exports.delete = function (request, response) {
 let id = request.params.carId;
 carService.delete(id, callback);
 };
+
+exports.findAll = function (request, response) {
+    let callback = function (cars) {
+    response.status(200);
+    response.json(cars);
+};
+carService.findAll(callback);
+};

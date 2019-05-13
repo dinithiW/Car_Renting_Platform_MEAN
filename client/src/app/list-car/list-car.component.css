@@ -1,44 +1,9 @@
-.comtainer{
-    width: 700px;
-    position: relative;
-    left: 27%;
-    border-style: solid;
-    padding: 12px 12px 12px 12px;
-  }
-
-  .col-md-6 , .col-md-4, .col-md-2{
-    padding-left: 1px;
-    padding-right: 1px;
-  }
-
-  .form-header{
-    padding: 8px 8px 8px 8px;
-    position: relative;
-    left : 34%;
-  }
-
-  .btn-group{
-    align-content: center;
-    position: relative;
-    left : 35%;
-  }
-
-  .btn-primary{
-    width : 170px;
-  }
-
-  .invalid-feedback{
-    color: red;
-
-  }
-
-
-  .backImg{
-
-    background-size: cover;
-
-  }
-  .center{
-    position: relative;
-    left: 35%;
-  }
+.container
+{
+	width: 600px;
+	height: 600px;
+	
+}
+.rows{
+  background-image:url("../../assets/images/HomePageBackround.jpg");background-repeat:no-repeat; background-position:center; background-size:cover;height: 800px;width: 100%;padding-top:50px;
+}
