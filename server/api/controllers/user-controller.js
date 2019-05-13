@@ -1,8 +1,10 @@
+const sms = require('../helpers/sms');
 /**
  * Controller for sticky endpoints.
  */
 
 'use strict';
+
 //import sticky service.
 const userService = require('../services/user-service');
 /**
@@ -19,8 +21,18 @@ exports.list = function (request, response) {
     };
         
     userService.search(request.query, callback);
-};      
-
+};     
+/**
+ * 
+ * @param {req} {HTTP request object}
+ * @param {res} {HTTP response object}
+ */ 
+exports.sendSMS = (req, res) => {
+    // const code = req.body.code
+    //   const number = req.body.phone
+        sms.sendSMS("Your verification code is ")
+  
+  }
 /**
  * Creates a new sticky with the request JSON and
  * returns sticky JSON object.
