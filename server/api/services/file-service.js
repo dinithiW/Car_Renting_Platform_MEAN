@@ -50,7 +50,7 @@ exports.save = function (req, res, callback) {
                      imgPath = 'assets/images/' ;
 
                 console.log("Image path is : " + imgPath);    
-                const dir = __dirname + './../../../car-rental-application/src/' + imgPath; 
+                const dir = __dirname + './../../../client/src/' + imgPath; 
 
                 console.log("Directory path is : " + dir);
                 mkdirp(dir, err => cb(err, dir))
