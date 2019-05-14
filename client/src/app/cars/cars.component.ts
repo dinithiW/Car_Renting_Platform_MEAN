@@ -31,7 +31,9 @@ export class CarsComponent implements OnInit {
      private booking:BookingsService) { }
 
   ngOnInit() {
-          
+    $(document).ready(function(){
+      $('.datepicker').datepicker();
+    });
     this.isLoggedIn = this.authService.checkLoggedInUser();
     console.log(this.isLoggedIn);
     if(!this.isLoggedIn){

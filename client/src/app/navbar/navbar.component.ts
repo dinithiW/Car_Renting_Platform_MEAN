@@ -1,7 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.services';
 import { Router } from '@angular/router';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-navbar',

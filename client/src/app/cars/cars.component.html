@@ -1,49 +1,100 @@
 <app-navbar></app-navbar>
-<div class="container header">
-    <form class="form-inline" (ngSubmit)="onSubmit(f)" #f="ngForm">
-      <h1>Search by Date</h1>
-        <div class="form-group">
-            <label for="inputPassword2" class="sr-only">Where</label>
-            <input type="where" class="form-control" id="" placeholder="Place" name="place"[(ngModel)]="filterStringplace">
-        </div>
-        <div class="form-group">
-            <label for="inputPassword2" class="sr-only">From</label>
-            <input class="form-control" type="datetime-local" value="2011-08-19 10:00:00" ngModel id="from" name="from">
+<div class="rows">
+    <div class="container row">
+      <div class="col s12">
+        <!-- <div class="card z-depth-2"> -->
+          <!-- <div class="card-content white-text"> -->
+            <div class="row">
+              <div class="col s12">
 
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        
+      <div class="row">
+        <div class="input-field col s12">
+            <label for="inputPassword2" class="sr-only">Where</label>
+            <input type="text" class="form-control" id="" placeholder="Place" name="place"[(ngModel)]="filterStringplace">
         </div>
-        <div class="form-group">
-            <label for="inputPassword2" class="sr-only">Until</label>
-            <input class="form-control" type="datetime-local" value="2011-08-19 10:00:00" ngModel id="until" name="until">
+      </div>
+      <h5 class = "light">Search by Date</h5>
+      <div class="row">
+          <div class="input-field col s6">
+              <input type="text" class="datepicker" ngModel id="from" name="from" placeholder="From :">
+              <!-- <label for="inputPassword2" class="sr-only">From</label>
+              <input class="form-control" type="datetime-local" value="2011-08-19 10:00:00" ngModel id="from" name="from"> -->
+  
           </div>
-          <button type="submit" class="btn btn-primary mb-2">Search</button>
-          <hr>
-          <h1>More Filters</h1>
-           <div class="form-group">
-            <label for="Filter" class="sr-only">Filter</label>
-            <input class="form-control" type="text" value="" id=""name="filter"[(ngModel)]="filterString" placeholder="Enter Filter Value">
+          <div class="input-field col s6">
+            <input type="text" class="datepicker" ngModel id="until" name="until" placeholder="Until :">
+              <!-- <label for="inputPassword2" class="sr-only">Until</label>
+              <input class="form-control" type="datetime-local" value="2011-08-19 10:00:00" ngModel id="until" name="until"> -->
+            </div>
+      </div>
+       
+        
+        
+          
+          
+          <h5 class="light">More Filters</h5>
+          <div class="row">
+              
+                <mat-form-field class="input-field col s6">
+                    <mat-select placeholder = "Filters" 
+                       [(ngModel)] = "selcetedValue" name="selectFilter">
+                       <mat-option *ngFor = "let  filter of filters" [value] = "filter"> {{filter}}
+                         
+                       </mat-option>
+                    </mat-select>
+                 </mat-form-field>
+                 <div class="input-field col s6">
+                    <label for="Filter" class="sr-only">Filter</label>
+                    <input class="form-control" type="text" value="" id=""name="filter"[(ngModel)]="filterString" placeholder="Enter Filter Value">
+                  </div>
           </div>
-          <select class="form-control" [(ngModel)]='selcetedValue' name="selectFilter">
+          
+          <!-- <div class="row">
+              <div class="col s1 col m5">
+          <select [(ngModel)]='selcetedValue' name="selectFilter">
               <option [value]="filter"  *ngFor="let  filter of filters">{{filter}}</option>
           </select>
+          </div>
+          </div> -->
+          
           <br>
           <br>
-          <div class="jumbtron ">
+          <button type="submit" class="btn btn-primary mb-2">Search</button>
+
             <div class="row">
-              <div class="col-xs-1 col-md-5">
-                <h4>Price Filter</h4>
-                <npn-slider [min]="10" [max]="200" (onChange)="onSliderChange($event)"></npn-slider>
+              <div class="col s1 col m5">
+                <h5 class="light">Price Filter</h5>
+                <npn-slider [min]="10" [max]="300000" (onChange)="onSliderChange($event)"></npn-slider>
               </div>
 
             </div>
 
-          </div>
+        
 
 
       </form>
-</div>
+
 <div class="container">
       <div class="row">
-        <a class=" col-sm-3 card" [routerLink]="['/cars',car._id]" *ngFor="let car of cars | filter:filterString:selcetedValue|money:currentValues[1]|place:filterStringplace">
+        
+          <a class="col s3" [routerLink]="['/cars',car._id]" *ngFor="let car of cars | filter:filterString:selcetedValue|money:currentValues[1]|place:filterStringplace">
+              <div class="card">
+                <div class="card-image">
+                    <img class="card-img-top" [src]="car.carImagePath" alt="Card image cap">
+                    <span class="badge badge-light">Rs.{{car.carPrice}} / <span class="small">day</span></span>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">{{car.carName}}<span class="year small" id="year"> - {{car.carYear}}</span></span>
+                    <div class="stars"><p>{{car.carTrips}} trips</p></div>
+                </div>
+                <div class="card-action">
+                  <a [routerLink]= "['/cars',car._id]" >Book Now</a>
+                </div>
+              </div>
+            </a>
+        <!-- <a class=" col s3 card" [routerLink]="['/cars',car._id]" *ngFor="let car of cars | filter:filterString:selcetedValue|money:currentValues[1]|place:filterStringplace">
           <div class="card-header">
               <img class="card-img-top" [src]="car.carImagePath" alt="Card image cap">
               <span class="badge badge-light">${{car.carPrice}}/<span class="small">day</span></span>
@@ -52,8 +103,13 @@
             <h2 class="card-title">{{car.carName}}<span class="year small" id="year">{{car.carYear}}</span></h2>
             <div class="stars"><p>{{car.carTrips}} trips</p></div>
           </div>
-        </a>
+        </a> -->
     </div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 
