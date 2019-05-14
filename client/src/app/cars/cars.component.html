@@ -1,36 +1,56 @@
 <app-navbar></app-navbar>
-<div class="container header">
-    <form class="form-inline" (ngSubmit)="onSubmit(f)" #f="ngForm">
-      <h5 class = "light">Search by Date</h5>
-        <div class="form-group">
-            <label for="inputPassword2" class="sr-only">Where</label>
-            <input type="where" class="form-control" id="" placeholder="Place" name="place"[(ngModel)]="filterStringplace">
-        </div>
-        <div class="form-group">
-            <label for="inputPassword2" class="sr-only">From</label>
-            <input class="form-control" type="datetime-local" value="2011-08-19 10:00:00" ngModel id="from" name="from">
+<div class="rows">
+    <div class="container row">
+      <div class="col s12">
+        <!-- <div class="card z-depth-2"> -->
+          <!-- <div class="card-content white-text"> -->
+            <div class="row">
+              <div class="col s12">
 
-        </div>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         
-        <div class="form-group">
-            <label for="inputPassword2" class="sr-only">Until</label>
-            <input class="form-control" type="datetime-local" value="2011-08-19 10:00:00" ngModel id="until" name="until">
+      <div class="row">
+        <div class="input-field col s12">
+            <label for="inputPassword2" class="sr-only">Where</label>
+            <input type="text" class="form-control" id="" placeholder="Place" name="place"[(ngModel)]="filterStringplace">
+        </div>
+      </div>
+      <h5 class = "light">Search by Date</h5>
+      <div class="row">
+          <div class="input-field col s6">
+              <input type="text" class="datepicker" ngModel id="from" name="from" placeholder="From :">
+              <!-- <label for="inputPassword2" class="sr-only">From</label>
+              <input class="form-control" type="datetime-local" value="2011-08-19 10:00:00" ngModel id="from" name="from"> -->
+  
           </div>
-          <button type="submit" class="btn btn-primary mb-2">Search</button>
-          <hr>
+          <div class="input-field col s6">
+            <input type="text" class="datepicker" ngModel id="until" name="until" placeholder="Until :">
+              <!-- <label for="inputPassword2" class="sr-only">Until</label>
+              <input class="form-control" type="datetime-local" value="2011-08-19 10:00:00" ngModel id="until" name="until"> -->
+            </div>
+      </div>
+       
+        
+        
+          
+          
           <h5 class="light">More Filters</h5>
-           <div class="form-group">
-            <label for="Filter" class="sr-only">Filter</label>
-            <input class="form-control" type="text" value="" id=""name="filter"[(ngModel)]="filterString" placeholder="Enter Filter Value">
+          <div class="row">
+              
+                <mat-form-field class="input-field col s6">
+                    <mat-select placeholder = "Filters" 
+                       [(ngModel)] = "selcetedValue" name="selectFilter">
+                       <mat-option *ngFor = "let  filter of filters" [value] = "filter"> {{filter}}
+                         
+                       </mat-option>
+                    </mat-select>
+                 </mat-form-field>
+                 <div class="input-field col s6">
+                    <label for="Filter" class="sr-only">Filter</label>
+                    <input class="form-control" type="text" value="" id=""name="filter"[(ngModel)]="filterString" placeholder="Enter Filter Value">
+                  </div>
           </div>
-          <mat-form-field>
-              <mat-select placeholder = "Filters" 
-                 [(ngModel)] = "selcetedValue" name="selectFilter">
-                 <mat-option *ngFor = "let  filter of filters" [value] = "filter"> {{filter}}
-                   
-                 </mat-option>
-              </mat-select>
-           </mat-form-field>
+          
           <!-- <div class="row">
               <div class="col s1 col m5">
           <select [(ngModel)]='selcetedValue' name="selectFilter">
@@ -38,8 +58,10 @@
           </select>
           </div>
           </div> -->
+          
           <br>
           <br>
+          <button type="submit" class="btn btn-primary mb-2">Search</button>
 
             <div class="row">
               <div class="col s1 col m5">
@@ -85,5 +107,10 @@
     </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+
 
 
