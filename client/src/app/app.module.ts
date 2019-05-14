@@ -21,12 +21,14 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { FileService } from './services/files.service';
 import { FilterPipe } from './filter.pipe';
 import { MoneyPipe } from './money.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { PaymentComponent } from './payment/payment.component';
 //  import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 //import {} from '@types/googlemaps';
+import {MatSelectModule} from '@angular/material';
 import { BookingsComponent } from './bookings/bookings.component';
 import { BookingsService } from './services/bookings.service';
 import { PlacePipe } from './place.pipe';
@@ -35,7 +37,8 @@ import { BookingConfirmComponent } from './booking-details/booking-details.compo
 import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 import { CarTripsComponent } from './car-trips/car-trips.component';
 import { AllCarsComponent } from './all-cars/all-cars.component';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,12 +62,19 @@ import { AllCarsComponent } from './all-cars/all-cars.component';
     AllCarsComponent,
   ],
   imports: [
+    MatDatepickerModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
     FormsModule,
     HttpClientModule,
     FormsModule,
+    MatSelectModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBxImSYeJl1s7poHFAufKoeuJ6jrdQbPZo',
@@ -73,7 +83,7 @@ import { AllCarsComponent } from './all-cars/all-cars.component';
     NpnSliderModule,
     NgbModule
   ],
-  providers: [CarsService, UsersService, AuthenticationService, FileService,BookingsService,GoogleMapsAPIWrapper],
+  providers: [CarsService, UsersService, MatDatepickerModule,AuthenticationService, FileService,BookingsService,GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

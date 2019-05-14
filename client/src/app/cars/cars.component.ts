@@ -2,24 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import {CarsService} from '../services/cars.services';
 import { Router} from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { NgForm } from '@angular/forms';
+import { NgForm,FormControl } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.services';
 import { BookingsComponent } from '../bookings/bookings.component';
 import { BookingsService } from '../services/bookings.service';
 import { element } from 'protractor';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+declare var $: any;
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.css']
 })
 export class CarsComponent implements OnInit {
-  /**
-   * Variables
-   *
-   */
-   filters = ['Color', 'seatCount', 'carYear'];
+
+   filters = ['carName', 'seatCount', 'carYear','city'];
    filterString;
-   selcetedValue;
+   filterStringplace;
+   selcetedValue : string;
    currentValues = [0, 0];
    currentValues2 = [2000, 3500];
    cars = [];
@@ -31,7 +31,7 @@ export class CarsComponent implements OnInit {
      private booking:BookingsService) { }
 
   ngOnInit() {
-
+          
     this.isLoggedIn = this.authService.checkLoggedInUser();
     console.log(this.isLoggedIn);
     if(!this.isLoggedIn){

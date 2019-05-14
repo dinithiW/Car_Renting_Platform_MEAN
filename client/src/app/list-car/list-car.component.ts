@@ -6,6 +6,7 @@ import { JsonPipe } from '@angular/common';
 import { FileService } from '../services/files.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GoogleMapsAPIWrapper, MapsAPILoader } from '@agm/core';
+import { userInfo } from 'os';
 
 @Component({
   selector: 'app-list-car',
@@ -20,9 +21,6 @@ export class ListCarComponent implements OnInit {
   filePath;
   oldCar = {};
   geocoder:any;
-
-  latitude;
-  longitude;
   address ;
   user = JSON.parse(localStorage.currentUser);
 
@@ -38,14 +36,7 @@ export class ListCarComponent implements OnInit {
 
   }
 
-  states = [
-    'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
-    'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts',
-    'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-    'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-    'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia',
-    'Wisconsin', 'Wyoming'
-];
+
   ngOnInit() {
 
     this.id = this.active.snapshot.params['id'];
@@ -80,7 +71,6 @@ export class ListCarComponent implements OnInit {
       carSeatCount:['', [Validators.required, Validators.pattern('[0-9]*')]],
       address: ['', [Validators.required]],
       city: ['', [Validators.required]],
-      state: ['', [Validators.required]],
       zip:['', [Validators.required, Validators.pattern('[0-9]*')]]
       
     });
@@ -103,7 +93,7 @@ export class ListCarComponent implements OnInit {
       console.log(this.registerForm.invalid);
       return;
     }
-    const address1= this.registerForm.get('address').value + ','+ this.registerForm.get('city').value +','+ this.registerForm.get('state').value + ',' + this.registerForm.get('zip').value
+    const address1= this.registerForm.get('address').value + ','+ this.registerForm.get('city').value +','+ this.registerForm.get('zip').value
     console.log(address1);
 
     //this.getLocation(address1)
@@ -142,10 +132,8 @@ export class ListCarComponent implements OnInit {
         'seatCount': this.registerForm.get('carSeatCount').value,
         'address': this.registerForm.get('address').value,
         'city': this.registerForm.get('city').value,
-        'state': this.registerForm.get('state').value,
         'zip':this.registerForm.get('zip').value,
-        //'latitude': this.latitude,
-        //'longitude':this.longitude
+        'userId' : JSON.parse(localStorage.currentUser)[0]._id
        }
       if(this.id){
         console.log("Inside update car");
@@ -157,6 +145,7 @@ export class ListCarComponent implements OnInit {
       }
       else{
         console.log("Inside Else");
+        //console.log(JSON.parse(localStorage.currentUser)[0]._id);
         this.carservice.putCar(car);
         alert('Successfully added');
         this.router.navigate(['/allCars']).then(()=>{
@@ -183,8 +172,7 @@ export class ListCarComponent implements OnInit {
                 console.log(results[0].geometry.bounds.j.l);
                 console.log(results[0].geometry.bounds.l.l);
 
-                this.latitude =results[0].geometry.bounds.j.l
-                this.longitude =results[0].geometry.bounds.l.l
+              
 
       } else {
         alert("Sorry, this search produced no results.");
