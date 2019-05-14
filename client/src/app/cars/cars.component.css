@@ -1,49 +1,16 @@
-.header{
-  background:#ffff;
-  width:100%;
-  margin-top:-25px;
-  margin-bottom: 5%;
-  border: 1px solid #F5F5F5;
-  box-shadow: 10px 5px 5px #F5F5F5;
+
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
-.btn{
-  margin :1%;
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.397);
 }
-.card-img-top{
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-}
-.card h2,.card p{
-  color: #000000;
-  font-weight: bold;
-  font-family:Plantin,AmericanTypewriter-Condensed,Times New Roman,serif;
-}
-.card-header{
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-.card:hover{
-  text-decoration: none;
-  color: #000000
-}
-.year{
-    color: #000000;
-    font-weight:bold;
-}
-.badge{
-  position: absolute;
-  border-radius: 2px;
-  right:10px;
-  bottom:10px;
-  height:30px;
-  width: 80px;
-  padding: 6px;
-  background: #ffffff;
-  color: #000000;
-  font-size:18px;
+.container{
+  width: 95%;
 }
 
