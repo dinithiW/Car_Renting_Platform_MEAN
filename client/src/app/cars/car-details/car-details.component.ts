@@ -43,7 +43,7 @@ orderBy: string;
 
  //infowindow = new google.maps.InfoWindow();
 
- private days : any
+private days : any
 private endDate :Date;
 private startTime;
 private endTime;
@@ -72,9 +72,18 @@ private ratingArr = [];
 private ratingSum = 0;
 private carTempImg='assets/images/Sinnbild_car.png '
 private test_pic = 'assets/images/test-profilepic.png'
-constructor(private carservice:  CarsService,config: NgbRatingConfig,private active : ActivatedRoute,private formBuilder: FormBuilder, private route: Router ,public mapsApiLoader: MapsAPILoader,
+constructor(
+  private carservice:  CarsService,
+  config: NgbRatingConfig,
+  private active : ActivatedRoute,
+  private formBuilder: FormBuilder, 
+  private route: Router ,
+  public mapsApiLoader: MapsAPILoader,
   private zone: NgZone,
-  private wrapper: GoogleMapsAPIWrapper,private authService : AuthenticationService, private users : UsersService) {
+  private wrapper: GoogleMapsAPIWrapper,
+  private authService : AuthenticationService, 
+  private users : UsersService
+  ) {
     config.max = 5;
     this.mapsApiLoader = mapsApiLoader;
     this.zone = zone;
@@ -85,13 +94,16 @@ constructor(private carservice:  CarsService,config: NgbRatingConfig,private act
   }
 
   ngOnInit() {
+
     this.rating = 0;
     this.isLoggedIn = this.authService.checkLoggedInUser();
     console.log(this.isLoggedIn);
+
     if(!this.isLoggedIn){
       alert("Kindly Login into your account");
       this.route.navigate(['']);
     }
+
     this.newObj= JSON.parse(localStorage.currentUser)[0];
 console.log( this.newObj);
  this.id = this.active.snapshot.params['id'];
@@ -103,28 +115,36 @@ console.log( this.newObj);
 this.active.params.subscribe(
   (params) => {
    this.id = params['id'];
+   console.log('heyyyyyyyyyy this is ID');
+   console.log(this.id);
   }
 )
  this.carservice.getCar(this.id).then(
 
    data =>{
+     console.log('oho here comes dataaaaaaa');
      console.log(data);
      this.carObj =data
 
      this.populateCarsDetails(this.carObj);
-     this.users.getUserById(this.carObj['userId']).then(
-      data2 => {
+     console.log('ane mona wadayakda');
+     console.log(this.carObj['userId']);
 
-        this.ownerObj = data2;
-        this.ownerName =this.ownerObj['FirstName']
+     /////////////////////////I commented 
+    //  this.users.getUserById(this.carObj['userId']).then(
+    //   data2 => {
 
-        if(data2.Ratings)
-        this.ratingArr = data2.Ratings;
-        this.calculateCarDetails(this.ratingArr);
-      }
-    )
+    //     this.ownerObj = data2;
+    //     this.ownerName =this.ownerObj['FirstName']
+
+    //     if(data2.Ratings)
+    //     this.ratingArr = data2.Ratings;
+    //     this.calculateCarDetails(this.ratingArr);
+    //   }
+    // )
     }
  );
+
 }
 
 /** Method to map the data  */
@@ -139,19 +159,19 @@ this.description = carObj.description;
 this.milage = carObj.milage
 this.fuelType = carObj.fuelType
 this.features = carObj.features
-this.parkingDetails = carObj.parkingDetails
-this.guideLines = carObj.guideLines
-this.dailyDistance = carObj.dailyDistance
-this.weeklyDistance = carObj.weeklyDistance
-this.monthlyDistance = carObj.monthlyDistance
-this.ownerName = carObj.ownerName
-this.doorCount  = carObj.doorCount
-this.seatCount = carObj.seatCount
-this.carImages =carObj.carImagePath
-this.latitude =carObj.longitude
-this.longitude =carObj.latitude
-this.ownerImg = carObj.ownerImg
-this.ownerName= this.ownerObj['FirstName']
+// this.parkingDetails = carObj.parkingDetails
+//this.guideLines = carObj.guideLines
+// this.dailyDistance = carObj.dailyDistance
+// this.weeklyDistance = carObj.weeklyDistance
+// this.monthlyDistance = carObj.monthlyDistance
+// this.ownerName = carObj.ownerName
+ this.doorCount  = carObj.doorCount
+ this.seatCount = carObj.seatCount
+// this.carImages =carObj.carImagePath
+// this.latitude =carObj.longitude
+// this.longitude =carObj.latitude
+//this.ownerImg = carObj.ownerImg
+// this.ownerName= this.ownerObj['FirstName']
 
 
 
@@ -162,15 +182,21 @@ if(!this.imgPath){
 this.imgPath = this.carTempImg
 console.log(this.imgPath);
 
+}else{
+  console.log('have car image');
 }
 
-if(!this.ownerImg){
-console.log('no image profile');
+///////////////////////////I commented the stuff belowwwwwwwwwww
+// if(!this.ownerImg){
+// console.log('no image profile');
 
-  this.ownerImg = this.test_pic
-  console.log( this.ownerImg);
+//   this.ownerImg = this.test_pic
+//   console.log( this.ownerImg);
 
-}
+// }else{
+//   console.log('yes image profile');
+// }
+
 }
 //method to checkout the form
 onCheckout(f){

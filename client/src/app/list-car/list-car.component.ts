@@ -53,6 +53,8 @@ export class ListCarComponent implements OnInit {
           console.log(data);
           this.oldCar =data
           console.log(this.oldCar);
+        //I am not sure whether I commented this or whether it was commented before as well. If your code doesn't work check here
+        //Sorry Roshani :p -Dinithi
          //this.populateCarsDetails(this.oldCar);
          });
          
@@ -103,6 +105,7 @@ export class ListCarComponent implements OnInit {
         data =>{
         this.filePath = data;
         //alert(this.filePath);
+        console.log('hey this is the path');
         console.log(this.filePath);
         this.createCarObj();
         });
