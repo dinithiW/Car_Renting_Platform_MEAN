@@ -22,6 +22,7 @@ private bookingprice  =localStorage.bookingPrice
  constructor(private carservice:CarsService, private route: Router, private authService: AuthenticationService) { }
 
   ngOnInit() {
+    
 
     this.isLoggedIn = this.authService.checkLoggedInUser();
     console.log(this.isLoggedIn);

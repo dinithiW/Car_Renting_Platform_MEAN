@@ -126,10 +126,7 @@ export class CarsService {
         seatCount: input.seatCount,
         address: input.address,
         city:input.city,
-        state:input.state,
-        zip: input.zip,
-        //latitude: input.latitude,
-        //longitude: input.longitude
+        zip: input.zip
       })
       .subscribe(
           data => {

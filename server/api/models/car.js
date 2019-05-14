@@ -43,10 +43,10 @@ let CarSchema = new Schema({
         type: Number,
         required: "dailyDistance is required"
     },
-    /*userId: {
+    userId: {
         type: String,
         required: "userId is required"
-    },*/
+    },
     fuelType: {
         type: String,
         required: "fuelType is required"
@@ -66,10 +66,6 @@ let CarSchema = new Schema({
     city:{
         type: String,
         required: "city is required"
-    },
-    state:{
-        type : String,
-        required : "state is required"
     },
     zip : {
         type : Number,

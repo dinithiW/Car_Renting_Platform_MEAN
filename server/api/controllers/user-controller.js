@@ -1,4 +1,5 @@
 const sms = require('../helpers/sms');
+
 /**
  * Controller for sticky endpoints.
  */
@@ -18,6 +19,7 @@ exports.list = function (request, response) {
     let callback = function (users) {
         response.status(200);
         response.json(users);
+        //console.log(users);
     };
         
     userService.search(request.query, callback);
