@@ -29,7 +29,7 @@ exports.search = function (params, callback) {
         throwError(err);
         callback(users);
     };
-    console.log(params);
+    //console.log(params);
     User.find(params, resultCallback);
 };
 
