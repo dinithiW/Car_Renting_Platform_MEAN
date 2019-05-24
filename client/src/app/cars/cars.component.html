@@ -7,34 +7,58 @@
             <div class="row">
               <div class="col s12">
 
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
         
-      <div class="row">
+
+       <div class="row">
         <div class="input-field col s12">
             <label for="inputPassword2" class="sr-only">Where</label>
             <input type="text" class="form-control" id="" placeholder="Place" name="place"[(ngModel)]="filterStringplace">
         </div>
-      </div>
+      </div> 
+
       <h5 class = "light">Search by Date</h5>
       <div class="row">
-          <div class="input-field col s6">
-              <input type="text" class="datepicker" ngModel id="from" name="from" placeholder="From :">
-              <!-- <label for="inputPassword2" class="sr-only">From</label>
+
+          <div class="input-field col s6"> 
+              <!-- <input type="text" class="datepicker" ngModel id ="from" name="from" placeholder="From :"> -->
+
+
+             <!-- <input type="text" class="datepicker" [(ngModel)] ="from" id ="from" name="from" placeholder="From:">  -->
+
+
+             <mat-form-field class="example-full-width">
+                <mat-label>Date</mat-label>
+                <input   matInput [matDatepicker]="myPicker"  placeholder="date" [ngModel] ="from | date:'MM-dd-yyyy' " id ="from" name="from">
+                <mat-datepicker-toggle  matSuffix [for]="myPicker"></mat-datepicker-toggle>
+                <mat-datepicker #myPicker></mat-datepicker>
+            </mat-form-field>
+
+               <!--<label for="inputPassword2" class="sr-only">From</label> 
               <input class="form-control" type="datetime-local" value="2011-08-19 10:00:00" ngModel id="from" name="from"> -->
-  
-          </div>
-          <div class="input-field col s6">
-            <input type="text" class="datepicker" ngModel id="until" name="until" placeholder="Until :">
-              <!-- <label for="inputPassword2" class="sr-only">Until</label>
-              <input class="form-control" type="datetime-local" value="2011-08-19 10:00:00" ngModel id="until" name="until"> -->
+              
             </div>
+
+          <!--<div class="input-field col s6">
+            <input type="text" class="datepicker" ngModel id = "until" name="until" placeholder="Until :">
+               <label for="inputPassword2" class="sr-only">Until</label>
+              <input class="form-control" type="datetime-local" value="2011-08-19 10:00:00" ngModel id="until" name="until"> 
+            </div> -->
+
+            <mat-form-field >
+                <mat-label>Date</mat-label>
+                <input   matInput [matDatepicker]="myPickers"  placeholder="date" [(ngModel)] ="until" id ="until" name="until" >
+                <mat-datepicker-toggle  matSuffix [for]="myPickers"></mat-datepicker-toggle>
+                <mat-datepicker #myPickers></mat-datepicker>
+            </mat-form-field>
       </div>
        
-        
+       
         
           
           
-          <h5 class="light">More Filters</h5>
+           <h5 class="light">More Filters</h5>
           <div class="row">
               
                 <mat-form-field class="input-field col s6">
@@ -49,7 +73,7 @@
                     <label for="Filter" class="sr-only">Filter</label>
                     <input class="form-control" type="text" value="" id=""name="filter"[(ngModel)]="filterString" placeholder="Enter Filter Value">
                   </div>
-          </div>
+          </div> 
           
           <!-- <div class="row">
               <div class="col s1 col m5">
@@ -63,13 +87,13 @@
           <br>
           <button type="submit" class="btn btn-primary mb-2">Search</button>
 
-            <div class="row">
+            <!-- <div class="row">
               <div class="col s1 col m5">
                 <h5 class="light">Price Filter</h5>
                 <npn-slider [min]="10" [max]="300000" (onChange)="onSliderChange($event)"></npn-slider>
               </div>
 
-            </div>
+            </div>  -->
 
         
 
@@ -79,7 +103,7 @@
 <div class="container">
       <div class="row">
         
-          <a class="col s3" [routerLink]="['/cars',car._id]" *ngFor="let car of cars | filter:filterString:selcetedValue|money:currentValues[1]|place:filterStringplace">
+          <a class="col s3" [routerLink]="['/cars',car._id]" *ngFor="let car of cars | filter:filterString:selcetedValue | place:filterStringplace">
               <div class="card">
                 <div class="card-image">
                     <img class="card-img-top" [src]="car.carImagePath" alt="Card image cap">
@@ -111,6 +135,5 @@
 </div>
 </div>
 </div>
-
 
 
