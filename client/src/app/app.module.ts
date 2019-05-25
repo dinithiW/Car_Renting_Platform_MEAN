@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {DatePipe} from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DateRangePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { DateRangePickerComponent } from '@syncfusion/ej2-angular-calendars';
 import { CarDetailsComponent } from './cars/car-details/car-details.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HomeComponent } from './home/home.component';
@@ -39,7 +42,7 @@ import { CarTripsComponent } from './car-trips/car-trips.component';
 import { AllCarsComponent } from './all-cars/all-cars.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule} from '@angular/material';
-
+import { CarBookingComponent } from './car-booking/car-booking.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +65,8 @@ import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule} fr
     NotFoundComponentComponent,
     CarTripsComponent,
     AllCarsComponent,
+    CarBookingComponent,
+    DateRangePickerComponent
   ],
   imports: [
     MatDatepickerModule,
@@ -85,7 +90,7 @@ import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule} fr
     NpnSliderModule,
     NgbModule
   ],
-  providers: [CarsService, UsersService, MatDatepickerModule,AuthenticationService, FileService,BookingsService,GoogleMapsAPIWrapper],
+  providers: [CarsService, UsersService, MatDatepickerModule,AuthenticationService, FileService,BookingsService,GoogleMapsAPIWrapper,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

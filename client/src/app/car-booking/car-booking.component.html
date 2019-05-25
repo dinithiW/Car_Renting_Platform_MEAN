@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="rows row">
+      <ul class="tabs">
+          <li class="tab col s12"><a class="teal-text active light">Order Details</a></li>
+          </ul>
+  </div>
+<div class="row">
+    <div class="col s4">
+        <div class="row">
+        
+        </div>
+        <div class="row">
+      <div class="card">
+          <div class="card-image">
+              <img class="card-img-top" [src]="imgPath" alt="Card image cap">
+              
+          </div>
+          <div class="card-content">
+              <span class="card-title"><span class="year small" id="year">{{carName}} - {{carYear}}</span></span>
+              <div class="small light"><p> Description :  {{description}} <br> Door Count :  {{doorCount}} <br> Seat Count : {{seatCount}}</p></div>
+          </div>
+        </div>
+        </div>
+    </div>
+    <div class="col s8">
+        <div class="card">
+            <div class="input-field teal-text col s12">
+                <ejs-daterangepicker id="daterange" #rangeObj (change)="onChange($event)" placeholder="Confirm Dates"></ejs-daterangepicker>
+              </div>
+            <div class="col s12">
+                <label for="inputFname" class="teal-text active">Start Date</label>
+                <input disabled type="text" class="form-control black-text light" id="inputFname" [(ngModel)]="start">
+          </div>
+          <div class="col s12">
+              <label for="inputEdate" class="teal-text active">End Date</label>
+              <input disabled type="text" class="form-control black-text light" id="inputEdate" [(ngModel)]="end">
+        </div>
+        <div class="col s12">
+            <label for="priced" class=" teal-text active">Price per day (Rs.)</label>
+            <input disabled type="text" class="form-control black-text light" id="priced" [(ngModel)]="price">
+      </div>
+      <div class="col s12">
+          <label for="total" class=" teal-text active">Total Cost (Rs.)</label>
+          <input disabled type="text" class="form-control black-text light" id="total" [(ngModel)]="total">
+    </div>
+    <div class="input-field col s12">
+        <a [routerLink]= "['/payment',total,id,startString,endString]" ><button class="btn btn-custom col s12" type="submit">Confirm</button></a>
+      </div>
+          
+                  </div>
+        </div>
+</div>
+</div>
+<!-- <div class="card col s6">
+   
+  </div> -->

@@ -5,62 +5,61 @@ const Schema = mongoose.Schema;
 /**
  * Mongoose schema for car object.
  */
-let BookingSchema = new Schema({
-    /**
+const BookingSchema = new Schema({
+  /**
      * Title of the car.
      */
-    userId: {
-        type: String,
-        required: "Name is required"
-    },
-    carId: {
-        type: String,
-        required: "Year is required"
-    },
-    booking_startTime: {
-        type: Date,
-        required: 'start time is required'
-    },
-    booking_endTime: {
-        type: Date,
-        required: 'end time is required'       
-    },
-    booking_price: {
-        type: Number,
-        required: 'Price is required'
-    },
-    isActive: {
-        type: Boolean,
-        default: true
-    },
-    isRated: {
-        type: Boolean,
-        default: false
-    },
-    ownerRating: {
-        type: Number,
-        default: 0
-    },
-    userRating: {
-        type: Number,
-        default: 0
-    },
-    /**
+  email: {
+    type: String,
+    required: 'Email is required',
+  },
+  userId: {
+    type: String,
+    required: 'Id is required',
+  },
+  carId: {
+    type: String,
+    required: 'Car is required',
+  },
+  startDate: {
+    type: String,
+    required: 'start time is required',
+  },
+  endDate: {
+    type: String,
+    required: 'end time is required',
+  },
+  bookingprice: {
+    type: Number,
+    required: 'Price is required',
+  },
+  charge_id: {
+    type: String,
+    required: 'Charge not successful',
+  },
+  receipt_url: {
+    type: String,
+  },
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
+  /**
      * car created date.
      */
-    created_date: {
-        type: Date,
-        default: Date.now
-    },
-    /**
+  created_date: {
+    type: Date,
+    default: Date.now,
+  },
+  /**
      * Last modified date.
      */
-    modified_date: {
-        type: Date,
-        default: Date.now
-    }
+  modified_date: {
+    type: Date,
+    default: Date.now,
+  },
 }, {
-    versionKey: false
+  versionKey: false,
 });
 
 module.exports = mongoose.model('booking', BookingSchema);
