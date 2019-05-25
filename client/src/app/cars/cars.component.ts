@@ -8,6 +8,9 @@ import { BookingsComponent } from '../bookings/bookings.component';
 import { BookingsService } from '../services/bookings.service';
 import { element } from 'protractor';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import{MatNativeDateModule } from '@angular/material';
+import * as moment from 'moment';
+
 declare var $: any;
 @Component({
   selector: 'app-cars',
@@ -25,15 +28,23 @@ export class CarsComponent implements OnInit {
    cars = [];
    closeResult : string;
    isLoggedIn;
+   public from;
+   arr: any[]=[];  
+
   constructor(private carsService: CarsService,
      private route: Router, private modalService: NgbModal,
      private authService : AuthenticationService,
      private booking:BookingsService) { }
 
   ngOnInit() {
-    $(document).ready(function(){
-      $('.datepicker').datepicker();
-    });
+    //  $(document).ready(function(){
+    //    $('#from').datepicker({
+    // //     onSelect: function() { 
+    // //       var dateObject = $(this).datepicker('getDate'); 
+    // //       console.log(dateObject);
+    //   // }
+    //    });
+    //  });
     this.isLoggedIn = this.authService.checkLoggedInUser();
     console.log(this.isLoggedIn);
     if(!this.isLoggedIn){
@@ -51,7 +62,7 @@ export class CarsComponent implements OnInit {
    *
    * @param selectedValues
    * Method:- TO get selected value in the Filter
-   * Author:-Rajat Acharya
+   * 
    */
   onSliderChange(selectedValues: number[]) {
     console.log(selectedValues);
@@ -59,7 +70,31 @@ export class CarsComponent implements OnInit {
 }
 
 onSubmit(f:NgForm){
-  console.log("end dtm::::"+(f.value.from + '.00'));
+ 
+ //console.log($('#from').datepicker({dateFormat: 'dd-mm-yyyy'}));
+   console.log("end dtm::::"+(f.value.from + '.00'));
+
+   var fromVal = f.value.from;
+   var untilVal = f.value.until;
+
+   var mFromVal = moment(fromVal,"MM-DD-YYYY");
+   var mUntilVal = moment(untilVal,"MM-DD-YYYY");
+
+   var parseFromVal = mFromVal.toISOString(true).split("+");
+   var parseUntilVal = mUntilVal.toISOString(true).split("+");
+
+   console.log("heyyyyoooo");
+   console.log(parseFromVal);
+
+   var fromValFinal = parseFromVal[0]+'Z';
+   var untilValFinal = parseUntilVal[0]+'Z';
+
+  //  var test = f.value.from;
+  // var mtest = moment(test,"MM-DD-YYYY")
+  // console.log(mtest.toISOString(true));
+
+   //console.log(typeof(f.value.from));
+  
   let bookedcars;
   this.carsService.getCars().then((data) => {
     console.log(JSON.stringify(data));
@@ -67,20 +102,24 @@ onSubmit(f:NgForm){
     console.log(this.cars);
  });
 
- this.booking.getcarsbydate((f.value.from + ':00.000Z'),(f.value.until+':00.000Z')).then(
-   (data)=>{
-    console.log(data)
-  bookedcars = data as string [];
-  console.log(bookedcars);
-      bookedcars.forEach(element => {
-            this.cars = this.cars.filter((car)=>{
-
-              return car['_id']!== element['carId']
+  // this.booking.getcarsbydate((f.value.from + ':00.000Z'),(f.value.until+':00.000Z')).then(
+    this.booking.getcarsbydate((fromValFinal),(untilValFinal)).then(
+    (data)=>{
+     console.log(data)
+   bookedcars = data as string [];
+   console.log(bookedcars);
+       bookedcars.forEach(element => {
+             this.cars = this.cars.filter((car)=>{
+              console.log('yeeee');
+              console.log(car['_id']);
+              console.log(element['carID']);
+               return car['_id']!== element['carID']
             })
-      });
-   }
- )
-  console.log(bookedcars);
-  console.log(this.cars);
+       });
+    }
+    
+  )
+   console.log(bookedcars);
+   console.log(this.cars);
 }
 }

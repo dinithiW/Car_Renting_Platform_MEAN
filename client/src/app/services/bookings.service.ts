@@ -36,6 +36,7 @@ export class BookingsService {
       this.httpClient.get("http://localhost:3000/bookings?startTime="+query1+"&endTime="+ query2).subscribe(
 
         (data) => {
+          console.log('there are someeeeee');
           console.log(data);
           resolve(data);
         },
