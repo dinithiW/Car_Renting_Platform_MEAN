@@ -56,7 +56,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
       this.code = this.generatecode();
       console.log('Code Gen: ' + this.code);
-       // this.Users.sendCode(user);
 
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -75,6 +74,7 @@ export class RegisterComponent implements OnInit {
     });
   }
  openDialog(): void {
+   // Uncomment this
     // this.Users.sendCode(this.code);
     const dialogRef = this.dialog.open(CodeDialogComponent, {
       width: '300px',
