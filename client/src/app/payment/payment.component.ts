@@ -66,7 +66,8 @@ payment() {
   data => {
     this.bookingId = data['booking_id'];
     console.log(this.bookingId);
-    this.route.navigate(['booking-confirm/' + this.bookingId]);
+    // this.route.navigate(['booking-confirm/' + this.bookingId]);
+    window.location.href = data['receipt_url'];
   });
 
 

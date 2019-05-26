@@ -4,6 +4,7 @@
 
 'use strict';
 require('dotenv').config();
+const sms = require('../helpers/sms');
 // import booking service.
 const STRIPE_KEY = process.env.STRIPE_TEST;
 const bookingService = require('../services/booking-service');
@@ -96,6 +97,7 @@ exports.post = function(request, response) {
 
 exports.find = function(request, response) {
   const callback = function(booking) {
+    console.log(booking);
     response.status(200);
     response.json(booking);
   };

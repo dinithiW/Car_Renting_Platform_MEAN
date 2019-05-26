@@ -30,9 +30,9 @@ exports.list = function(request, response) {
  * @param {res} {HTTP response object}
  */
 exports.sendSMS = (req, res) => {
-  // const code = req.body.code
-  //   const number = req.body.phone
-  sms.sendSMS('Your verification code is ');
+  const code = req.body.Code;
+  sms.sendSMS('Your verification code is '+code, '+94778691968');
+  res.status(200);
 };
 /**
  * Creates a new sticky with the request JSON and

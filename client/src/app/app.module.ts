@@ -41,9 +41,10 @@ import { NotFoundComponentComponent } from './not-found-component/not-found-comp
 import { CarTripsComponent } from './car-trips/car-trips.component';
 import { AllCarsComponent } from './all-cars/all-cars.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule} from '@angular/material';
+import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule, MatDialogModule,MatSnackBarModule} from '@angular/material';
 import { CarBookingComponent } from './car-booking/car-booking.component';
-
+import { CodeDialogComponent } from './register/register.component';
+import {SnackBarComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,8 +67,11 @@ import { CarBookingComponent } from './car-booking/car-booking.component';
     CarTripsComponent,
     AllCarsComponent,
     CarBookingComponent,
-    DateRangePickerComponent
+    DateRangePickerComponent,
+    CodeDialogComponent,
+    SnackBarComponent
   ],
+  entryComponents: [CodeDialogComponent,SnackBarComponent],
   imports: [
     MatDatepickerModule,
     BrowserAnimationsModule,
@@ -75,6 +79,8 @@ import { CarBookingComponent } from './car-booking/car-booking.component';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
+    MatSnackBarModule,
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
