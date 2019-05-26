@@ -4,10 +4,13 @@
     transition: 0.3s;
 
   }
-  
+
   /* On mouse-over, add a deeper shadow */
   .card:hover {
     box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.397);
+  }
+  .rowss{
+    background-color: white;
   }
   .container{
     width: 95%;
@@ -26,6 +29,10 @@
     margin-bottom: 15px;
   }
   .tabs .tab a{
+    
     font-size: 24px;
   }
   
+  .tabs{
+    background-color: teal;
+  }

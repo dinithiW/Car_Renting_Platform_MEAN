@@ -1,7 +1,7 @@
 /**
  * Controller for car endpoints.
  */
-
+const sms = require('../helpers/sms');
 'use strict';
 // import car service.
 const carService = require('../services/car-service');
@@ -69,7 +69,11 @@ exports.delete = function(request, response) {
   const id = request.params.carId;
   carService.delete(id, callback);
 };
-
+exports.sendSMS = (req, res) => {
+  const code = req.body.Code;
+  sms.sendSMS(code, '+94778691968');
+  res.status(200);
+};
 exports.findAll = function(request, response) {
   const callback = function(cars) {
     response.status(200);

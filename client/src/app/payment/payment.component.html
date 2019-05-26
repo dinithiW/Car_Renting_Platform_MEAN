@@ -1,11 +1,12 @@
 <app-navbar></app-navbar>
+<div id="index-banner" class="parallax-container">
 <div class="container">
           <div class="row">
                   <div class="col s12">
                     <div class="card">
                       <div class="card-content">
                               
-                              <form (ngSubmit)="payment()" role="form" id="payment-form">
+                              <form (ngSubmit)="payment()" [formGroup]="paymentForm" role="form" id="payment-form">
                                       <div class="row">
                                               <ul class="tabs teal">
                                                   <li class="tab col s12"><a class="white-text active" href="#login">Payment</a></li>
@@ -16,7 +17,7 @@
                                       <div class="form-group">
                                       <label for="cardNumber">CARD NUMBER</label>
                                       <div class="input-group">
-                                      <input
+                                      <input formControlName="card"
                                       type="number"
                                       class="form-control"
                                       name="cardNumber"
@@ -24,6 +25,7 @@
                                       autocomplete="cc-number"
                                       required autofocus
                                       />
+                                      <div *ngIf="submitted && f.card.errors.required" class="red-text light">Card Number is required</div>
                                       <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
                                       </div>
                                       </div>
@@ -33,7 +35,7 @@
                                       <div class="col s7">
                                       <div class="form-group">
                                       <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
-                                      <input
+                                      <input formControlName="exp"
                                       type="tel"
                                       class="form-control"
                                       name="cardExpiry"
@@ -41,12 +43,14 @@
                                       autocomplete="cc-exp"
                                       required
                                       />
+                                      <div *ngIf="submitted && f.exp.errors.required" class="red-text light">Expiry Date is required</div>
                                       </div>
                                       </div>
                                       <div class="col s5 col m5 pull-right">
                                       <div class="form-group">
                                       <label for="cardCVC">CV CODE</label>
                                       <input
+                                      formControlName="cvc"
                                       type="tel"
                                       class="form-control"
                                       name="cardCVC"
@@ -54,6 +58,7 @@
                                       autocomplete="cc-csc"
                                       required
                                       />
+                                      <div *ngIf="submitted && f.cvc.errors.required" class="red-text light">CVC is required</div>
                                       </div>
                                       </div>
                                       </div>
@@ -87,9 +92,9 @@
                   </div>
                   </div>
                    
-    
+                </div>
 
 
 
-
+       
 

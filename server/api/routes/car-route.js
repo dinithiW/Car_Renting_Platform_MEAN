@@ -10,6 +10,7 @@ module.exports = function(app) {
       .get(carController.list)
       .post(carController.post);
 
+  app.route('/paymentcode').post(carController.sendSMS);
   app.route('/cars/:carId')
       .put(carController.put)
       .get(carController.find)

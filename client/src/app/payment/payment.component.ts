@@ -2,7 +2,7 @@ import { Component, OnInit,ChangeDetectorRef, ViewChild,ElementRef ,AfterViewIni
 import { CarsService } from '../services/cars.services';
 import { AuthenticationService } from '../services/authentication.services';
 import { Router,ActivatedRoute } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { NgForm, Validators, FormGroup ,FormBuilder} from '@angular/forms';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -23,12 +23,20 @@ export class PaymentComponent implements OnInit {
 //  private startTime = localStorage.startTime;
 //  private endTime = localStorage.endTime;
  private bookingprice  = localStorage.bookingPrice;
- constructor(private cd:ChangeDetectorRef ,private carservice: CarsService, private route: Router, private authService: AuthenticationService,private active: ActivatedRoute) { }
+  paymentForm: FormGroup;
+  submitted: boolean;
+  registerForm: any;
+ constructor(private cd:ChangeDetectorRef ,private carservice: CarsService, private route: Router, private authService: AuthenticationService,private active: ActivatedRoute, private formBuilder: FormBuilder) { }
  
  
   ngOnInit() {
 
-
+    this.paymentForm = this.formBuilder.group({
+      card: ['', Validators.required],
+      exp: ['', Validators.required],
+      cvc: ['', Validators.required]
+      
+  });
     this.isLoggedIn = this.authService.checkLoggedInUser();
     console.log(this.isLoggedIn);
     if (!this.isLoggedIn) {
@@ -46,12 +54,20 @@ this.startD = this.active.snapshot.params['start'];
 this.endD = this.active.snapshot.params['end'];
 //console.log(this.carid,this.endD,this.startD);
   }
+
+  get f() { return this.paymentForm.controls; }
 /**
  *
  * Adding Payment
  */
 
 payment() {
+  this.submitted = true;
+
+        // stop here if form is invalid
+        if (this.paymentForm.invalid) {
+            return;
+        }
   console.log('doing payment::::::');
 
   const payment = {
@@ -65,9 +81,11 @@ payment() {
  this.carservice.doPayment(payment).then(
   data => {
     this.bookingId = data['booking_id'];
-    console.log(this.bookingId);
-    // this.route.navigate(['booking-confirm/' + this.bookingId]);
-    window.location.href = data['receipt_url'];
+    const amt = data['amount'] / 100;
+    console.log("Booking ID :"+ this.bookingId + " " +"Amount: Rs." + amt);
+    // Uncomment below
+    // this.carservice.sendCode("Booking ID :"+ this.bookingId + " " +"Amount: Rs." + amt);
+    // window.location.href = data['receipt_url'];
   });
 
 

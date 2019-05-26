@@ -9,6 +9,13 @@
   font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
   color: #555;
 }
+.parallax-container{
+  background-image: url('../../assets/images/car.jpg');
+  height: 700px;
+  background-size: cover;
+  padding-top: 50px;
+  color: #ffff;
+}
 
 h2{
   position: relative;

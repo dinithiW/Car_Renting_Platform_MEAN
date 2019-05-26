@@ -137,7 +137,20 @@ export class CarsService {
           }
       );
 }
-
+sendCode(input) {
+  // console.log(input.Phone);
+  this.httpClient.post('http://localhost:3000/paymentcode',
+    {
+       'Code' : input
+    })
+    .subscribe(
+        data => {
+            console.log('POST Request is successful ', data);
+        },
+        error => {
+            console.log('Error', error);
+        });
+}
 
 
 doPayment(payment){
