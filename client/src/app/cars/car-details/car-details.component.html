@@ -97,48 +97,76 @@
           <!-- <hr class="half-rule"/>
       </div> -->
       <div class="col-sm-4">
+        
         <br>
         <span>
-            <span class="price-style">$</span>
-        <span class="price-style"> <b>{{price}}</b></span>
-        <span class="currency-style" >per day</span>
+          <span class="price-style">$</span>
+          <span class="price-style"> <b>{{price}}</b></span>
+          <span class="currency-style" >per day</span>
         </span>
-        <!-- <hr class="half-rule"/> -->
-        <div class="" *ngIf="newObj._id != carObj.userId">
-            <!-- <form  (ngSubmit)="proceed(f)" #f="ngForm">
-          <div> -->
+        <hr class="half-rule"/> 
+        <br>
+        <br>
+        
+        <div class="" *ngIf="newObj._id != carObj.userID">
+         
+          <form  (ngSubmit)="proceed(f)" #f="ngForm">
+            <!-- <table>
 
-            <!-- <div class="bookingDetailsHeading" > <label for="" >Trip Start </label> </div>
+              <tr>
+                <td>
+                  Trip Start
+                    
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                    <input class="form-control dateStyle" type="date" name="stDate" ngModel id="stdt">
+                </td>
+                <td>
+                    <input class="form-control timeStyle" type="time" name="stTime" ngModel id="stTime">
+                </td>
+              </tr>
+            </table> -->
+
+            <div> 
+                <b>Trip Start</b>
+              <!-- <div class="bookingDetailsHeading" > 
+                 <label for="" >Trip Start </label>  
+                
+              </div> -->
+              <!-- <br> -->
+              <span class="bookingDetailsHeading">
+                <input class="form-control dateStyle" type="date" name="stDate" ngModel id="stdt">
+                <input class="form-control timeStyle" type="time" name="stTime" ngModel id="stTime">
+              </span>
+            </div> 
+
+            <div class="bookingDetailsHeading" > <label for="" >Trip End</label> </div>
             <span class="bookingDetailsHeading">
-            <input class="form-control dateStyle" type="date" name="stDate" ngModel id="stdt">
-            <input class="form-control timeStyle" type="time" name="stTime" ngModel id="stTime">
-          </span>
-          </div>
-          <div class="bookingDetailsHeading" > <label for="" >Trip End</label> </div>
-          <span class="bookingDetailsHeading">
-          <input class="form-control dateStyle" type="date" name="endDate" ngModel id="example-date-input">
-          <input class="form-control timeStyle" type="time" name="endTime" ngModel id="example-time-input">
-        </span>
-        <div>
-          <br>
-            <button type="submit" class="btn btn-primary   btn-block">Proceed to Checkout</button>
-            <div *ngIf=condition>Start date is greater than End date</div>
-        </div> -->
-        <!-- </form> -->
-      <!-- </div> -->
-        <hr class="half-rule"/>
-        <!-- <div id="map">
+              <input class="form-control dateStyle" type="date" name="endDate" ngModel id="example-date-input">
+              <input class="form-control timeStyle" type="time" name="endTime" ngModel id="example-time-input">
+            </span>
+
+            <div>
+              
+              
+              <button type="submit" class="btn btn-primary   btn-block">Proceed to Checkout</button>
+              <div *ngIf=condition>Start date is greater than End date</div>
+            </div> 
+          </form>
+      </div> 
+          <hr class="half-rule"/>
+         <div id="map">
           <agm-map [latitude]="latitude" [longitude]="longitude">
             <agm-marker  [latitude]="latitude" [longitude]="longitude" ></agm-marker>
 
           </agm-map>
-
-
-
-        </div> -->
-        <hr class="half-rule"/>
-        <p class="carDescription">DISTANCE INCLUDED</p>
-        <!-- <div class="reservationDetails">
+        </div> 
+          <hr class="half-rule"/>
+          <p class="carDescription">DISTANCE INCLUDED</p>
+        <div class="reservationDetails">
           <div><b>Day</b></div>
           <div><b>{{dailyDistance}} mi</b></div>
         </div>
@@ -149,18 +177,18 @@
         <div class="reservationDetails">
           <div><b>Month</b></div>
           <div><b>{{monthlyDistance}} mi</b></div>
-        </div> -->
-        <hr class="half-rule"/>
-        <!-- <div class="ownerDetails">
+        </div> 
+          <hr class="half-rule"/>
+        <div class="ownerDetails">
 
             <div>
                <div><p class="carDescription">OWNED BY</p> </div> <br>
                <div> <p class="carDescription names"> <b>{{ownerName}} </b></p>
                 <ngb-rating  [readonly]="readonly" [(rate)]="rating" class="starRate" readonly="true"></ngb-rating>
               </div>
-            </div> -->
-            <!-- <div > <img class="ownerImg" [src]="ownerImg" alt=""></div> -->
+            </div> 
+           <div > <img class="ownerImg" [src]="ownerImg" alt=""></div> 
           </div>
 
       </div>
-    </div>
+    </div> 
