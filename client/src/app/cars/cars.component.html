@@ -64,7 +64,7 @@
                 <mat-form-field class="input-field col s6">
                     <mat-select placeholder = "Filters" 
                        [(ngModel)] = "selcetedValue" name="selectFilter">
-                       <mat-option *ngFor = "let  filter of filters" [value] = "filter"> {{filter}}
+                       <mat-option *ngFor = "let  filter of filters" [value] = "filter[0]"> {{filter[1]}}
                          
                        </mat-option>
                     </mat-select>
@@ -105,7 +105,7 @@
         
           <a class="col s3" [routerLink]="['/cars',car._id]" *ngFor="let car of cars | filter:filterString:selcetedValue | place:filterStringplace">
               <div class="card">
-                <div class="card-image">
+                <div class="card-image">`
                     <img class="card-img-top" [src]="car.carImagePath" alt="Card image cap">
                     <span class="badge badge-light">Rs.{{car.carPrice}} / <span class="small">day</span></span>
                 </div>

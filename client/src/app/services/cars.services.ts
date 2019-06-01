@@ -12,6 +12,9 @@ export class CarsService {
       this.httpClient.get<Array<any>>('http://localhost:3000/allCars')//cars
       .subscribe(data => {
         console.log(data as string []);
+        /*for(let i = 0; i <= data.length; i++){
+          data[i] = data[i].toLowerCase();
+        }*/
         resolve(data as string[]);
       },
       error => {
