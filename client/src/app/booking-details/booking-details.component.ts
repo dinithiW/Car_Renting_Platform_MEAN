@@ -17,6 +17,7 @@ export class BookingConfirmComponent implements OnInit {
   userObj;
   carObj;
   ownerObj;
+  public receipt:any ;
   selected1=0;
   selected2=0;
 
@@ -60,7 +61,7 @@ export class BookingConfirmComponent implements OnInit {
             });
       });
 
-      console.log(this.userObj);
+      // console.log(this.userObj);
       this.loggedInUser = JSON.parse(localStorage.currentUser)[0]._id;
 
 

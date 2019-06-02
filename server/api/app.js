@@ -1,18 +1,17 @@
 'use strict';
-module.exports = function (app) {
-    //Initialize models
-    let carModel = require('./models/car');
-    let userModel = require('./models/user');
-    let bookingModel = require('./models/booking');
+module.exports = function(app) {
+  // Initialize models
+  const carModel = require('./models/car');
+  const userModel = require('./models/user');
+  const bookingModel = require('./models/booking');
 
-    //Initialize routes
-    let carRoutes = require('./routes/car-route');
-    carRoutes(app);
-    let userRoutes = require('./routes/user-route');
-    userRoutes(app);
-    let uploadRoutes = require('./routes/file-route');
-    uploadRoutes(app);
-    let bookingRoutes = require('./routes/booking-route');
-    bookingRoutes(app);
-
+  // Initialize routes
+  const carRoutes = require('./routes/car-route');
+  carRoutes(app);
+  const userRoutes = require('./routes/user-route');
+  userRoutes(app);
+  const uploadRoutes = require('./routes/file-route');
+  uploadRoutes(app);
+  const bookingRoutes = require('./routes/booking-route');
+  bookingRoutes(app);
 };

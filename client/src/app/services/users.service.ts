@@ -39,7 +39,7 @@ export class UsersService {
 
   //Method to add a new user object into the database
   putUser(input) {
-      console.log(input.Name);
+      // console.log(input.Phone);
       this.httpClient.post('http://localhost:3000/users',
         {
            'Name': input.Name,
@@ -48,7 +48,9 @@ export class UsersService {
            'Address': input.Address,
            'City': input.City,
            'ProfilePic' : input.ProfilePic,
-           'Alerts': input.Alerts
+           'Alerts': input.Alerts,
+           'Phone' : input.Phone,
+           'Code' : input.Code
         })
         .subscribe(
             data => {
@@ -58,6 +60,28 @@ export class UsersService {
                 console.log('Error', error);
             });
   }
+  /**
+   *
+   * @param input ]
+   *
+   * To Put user
+   */
+
+  //Method to add a new user object into the database
+  sendCode(input) {
+    // console.log(input.Phone);
+    this.httpClient.post('http://localhost:3000/usercode',
+      {
+         'Code' : input
+      })
+      .subscribe(
+          data => {
+              console.log('POST Request is successful ', data);
+          },
+          error => {
+              console.log('Error', error);
+          });
+}
 
   /**
    *
@@ -67,7 +91,6 @@ export class UsersService {
    */
   //Method to update an existing user object in the database.
   updateUser(input) {
-    console.log(input.FirstName);
     alert(input.ProfilePicPath);
     this.httpClient.put('http://localhost:3000/users/' + input.userId,
       {
@@ -77,7 +100,8 @@ export class UsersService {
          'Address': input.Address,
          'City': input.City,
          'ProfilePicPath' : input.ProfilePicPath,
-         'Alerts': input.Alerts
+         'Alerts': input.Alerts,
+         'Phone' : input.Phone
       })
       .subscribe(
           data => {

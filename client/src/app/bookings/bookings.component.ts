@@ -53,6 +53,7 @@ export class BookingsComponent implements OnInit {
           console.log(car);
           this.booking['carName'] = car['carName'];
           this.booking['carImagePath'] =car['carImagePath'];
+          this.booking['receipt_url'] = booking['receipt_url'];
           this.listBookings.push(this.booking);
 
        });

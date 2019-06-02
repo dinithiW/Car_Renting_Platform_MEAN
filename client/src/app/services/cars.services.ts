@@ -140,19 +140,33 @@ export class CarsService {
           }
       );
 }
-
+sendCode(input) {
+  // console.log(input.Phone);
+  this.httpClient.post('http://localhost:3000/paymentcode',
+    {
+       'Code' : input
+    })
+    .subscribe(
+        data => {
+            console.log('POST Request is successful ', data);
+        },
+        error => {
+            console.log('Error', error);
+        });
+}
 
 
 doPayment(payment){
   console.log(payment);
-    let promise = new Promise((resolve, reject) => {
-    this.httpClient.post('http://localhost:3000/bookings',
+  let promise = new Promise((resolve, reject) => {
+    this.httpClient.post('http://localhost:3000/paytest',
       {
-         'userId': payment.userName,
-         'carId': payment.carId,
-         'booking_startTime': payment.startDate,
-         'booking_endTime': payment.endDate,
-         'booking_price': payment.bookingprice,
+         'email': payment.email,
+         'bookingprice': payment.bookingprice,
+         'userId' : payment.userName,
+         'carId' : payment.carId,
+         'startDate' : payment.startDate,
+         'endDate' : payment.endDate,
       })
       .subscribe(
           data => {
@@ -164,6 +178,25 @@ doPayment(payment){
           });
     });
     return promise;
+    // let promise = new Promise((resolve, reject) => {
+    // this.httpClient.post('http://localhost:3000/bookings',
+    //   {
+    //      'userId': payment.userName,
+    //      'carId': payment.carId,
+    //      'booking_startTime': payment.startDate,
+    //      'booking_endTime': payment.endDate,
+    //      'booking_price': payment.bookingprice,
+    //   })
+    //   .subscribe(
+    //       data => {
+    //         resolve(data);
+    //         console.log(data);
+    //       },
+    //       error => {
+    //           console.log('Error', error);
+    //       });
+    // });
+    // return promise;
 }
 
 }

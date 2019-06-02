@@ -3,18 +3,18 @@
  */
 
 'use strict';
-const mongoose = require('mongoose'),
-    Car = mongoose.model('cars');
+const mongoose = require('mongoose');
+const Car = mongoose.model('cars');
 
 /**
  * Throws error if error object is present.
  *
  * @param {Object} error {Error object}
  */
-let throwError = function (error) {
-    if (error) {
-        throw Error(error);
-    }
+const throwError = function(error) {
+  if (error) {
+    throw Error(error);
+  }
 };
 
 /**
@@ -23,12 +23,12 @@ let throwError = function (error) {
  * @param {Object} params {Search parameters}
  * @param {function} callback {Sucess callback function}
  */
-exports.search = function (params, callback) {
-    let resultCallback = function (err, cars) {
-        throwError(err);
-        callback(cars);
-    };
-    Car.find(params, resultCallback);
+exports.search = function(params, callback) {
+  const resultCallback = function(err, cars) {
+    throwError(err);
+    callback(cars);
+  };
+  Car.find(params, resultCallback);
 };
 
 /**
@@ -37,13 +37,13 @@ exports.search = function (params, callback) {
  * @param {Object} car {Car object}
  * @param {function} callback {Sucess callback function}
  */
-exports.save = function (car, callback) {
-    let newCar = new Car(car),
-        resultCallback = function (err, car) {
-            throwError(err);
-            callback(car);
-    };
-    newCar.save(resultCallback);
+exports.save = function(car, callback) {
+  const newCar = new Car(car);
+  const resultCallback = function(err, car) {
+    throwError(err);
+    callback(car);
+  };
+  newCar.save(resultCallback);
 };
 
 /**
@@ -52,39 +52,39 @@ exports.save = function (car, callback) {
  * @param {Object} car {Car object}
  * @param {function} callback {Sucess callback function}
  */
-exports.update = function (car, callback) {
-    let resultCallback = function (err, car) {
-        throwError(err);
-        callback(car);
-    };
-    car.modified_date = new Date();
-    Car.findOneAndUpdate({
-        _id: car._id
-    }, car, {
-        new: true
-    }, resultCallback);
+exports.update = function(car, callback) {
+  const resultCallback = function(err, car) {
+    throwError(err);
+    callback(car);
+  };
+  car.modified_date = new Date();
+  Car.findOneAndUpdate({
+    _id: car._id,
+  }, car, {
+    new: true,
+  }, resultCallback);
 };
 
-exports.find = function(id, callback){
-    let resultCallback = function (err, car) {
-        throwError(err);
-        callback(car);
-    };
-    Car.findById(id,resultCallback);
-}
+exports.find = function(id, callback) {
+  const resultCallback = function(err, car) {
+    throwError(err);
+    callback(car);
+  };
+  Car.findById(id, resultCallback);
+};
 
-exports.findAll = function(callback){
-    let resultCallback = function (err, cars) {
-        throwError(err);
-        callback(cars);
-    };
-    Car.find(resultCallback);
-}
+exports.findAll = function(callback) {
+  const resultCallback = function(err, cars) {
+    throwError(err);
+    callback(cars);
+  };
+  Car.find(resultCallback);
+};
 
-exports.delete = function(id, callback){
-    let resultCallback = function (err, car) {
-        throwError(err);
-        callback(car);
-    };
-    Car.findByIdAndDelete(id, resultCallback);
-}
+exports.delete = function(id, callback) {
+  const resultCallback = function(err, car) {
+    throwError(err);
+    callback(car);
+  };
+  Car.findByIdAndDelete(id, resultCallback);
+};

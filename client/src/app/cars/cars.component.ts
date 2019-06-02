@@ -114,6 +114,7 @@ onSubmit(f:NgForm){
              this.cars = this.cars.filter((car)=>{
               console.log('yeeee');
               console.log(car['_id']);
+
               console.log(element['carId']);
                return car['_id']!== element['carId']
             })

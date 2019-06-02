@@ -1,9 +1,9 @@
 /**
  * Controller for car endpoints.
  */
-
+const sms = require('../helpers/sms');
 'use strict';
-//import car service.
+// import car service.
 const carService = require('../services/car-service');
 /**
  * Returns a list of car in JSON based on the
@@ -12,12 +12,12 @@ const carService = require('../services/car-service');
  * @param {request} {HTTP request object}
  * @param {response} {HTTP response object}
  */
-exports.list = function (request, response) {
-    let callback = function (cars) {
-        response.status(200);
-        response.json(cars);
-    };
-    carService.search(request.query, callback);
+exports.list = function(request, response) {
+  const callback = function(cars) {
+    response.status(200);
+    response.json(cars);
+  };
+  carService.search(request.query, callback);
 };
 
 /**
@@ -27,13 +27,13 @@ exports.list = function (request, response) {
  * @param {request} {HTTP request object}
  * @param {response} {HTTP response object}
  */
-exports.post = function (request, response) {
-    let newCar = Object.assign({}, request.body),
-        callback = function (car) {
-        response.status(200);
-        response.json(car);
-    };
-    carService.save(newCar, callback);
+exports.post = function(request, response) {
+  const newCar = Object.assign({}, request.body);
+  const callback = function(car) {
+    response.status(200);
+    response.json(car);
+  };
+  carService.save(newCar, callback);
 };
 
 /**
@@ -42,38 +42,42 @@ exports.post = function (request, response) {
  * @param {request} {HTTP request object}
  * @param {response} {HTTP response object}
  */
-exports.put = function (request, response) {
-    let car = Object.assign({}, request.body),
-        callback = function (car) {
-        response.status(200);
-        response.json(car);
-    };
-    car._id = request.params.carId;
-    carService.update(car, callback);
-};
-
-exports.find = function (request, response) {
-        let callback = function (car) {
-        response.status(200);
-        response.json(car);
-    };
-    let id = request.params.carId;
-    carService.find(id, callback);
-};
-
-exports.delete = function (request, response) {
-    let callback = function (car) {
+exports.put = function(request, response) {
+  const car = Object.assign({}, request.body);
+  const callback = function(car) {
     response.status(200);
     response.json(car);
-};
-let id = request.params.carId;
-carService.delete(id, callback);
+  };
+  car._id = request.params.carId;
+  carService.update(car, callback);
 };
 
-exports.findAll = function (request, response) {
-    let callback = function (cars) {
+exports.find = function(request, response) {
+  const callback = function(car) {
+    response.status(200);
+    response.json(car);
+  };
+  const id = request.params.carId;
+  carService.find(id, callback);
+};
+
+exports.delete = function(request, response) {
+  const callback = function(car) {
+    response.status(200);
+    response.json(car);
+  };
+  const id = request.params.carId;
+  carService.delete(id, callback);
+};
+exports.sendSMS = (req, res) => {
+  const code = req.body.Code;
+  sms.sendSMS(code, '+94778691968');
+  res.status(200);
+};
+exports.findAll = function(request, response) {
+  const callback = function(cars) {
     response.status(200);
     response.json(cars);
-};
-carService.findAll(callback);
+  };
+  carService.findAll(callback);
 };

@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {DatePipe} from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DateRangePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { DateRangePickerComponent } from '@syncfusion/ej2-angular-calendars';
 import { CarDetailsComponent } from './cars/car-details/car-details.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HomeComponent } from './home/home.component';
@@ -38,9 +41,10 @@ import { NotFoundComponentComponent } from './not-found-component/not-found-comp
 import { CarTripsComponent } from './car-trips/car-trips.component';
 import { AllCarsComponent } from './all-cars/all-cars.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule} from '@angular/material';
-
-
+import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule, MatDialogModule,MatSnackBarModule} from '@angular/material';
+import { CarBookingComponent } from './car-booking/car-booking.component';
+import { CodeDialogComponent } from './register/register.component';
+import {SnackBarComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +66,12 @@ import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule} fr
     NotFoundComponentComponent,
     CarTripsComponent,
     AllCarsComponent,
+    CarBookingComponent,
+    DateRangePickerComponent,
+    CodeDialogComponent,
+    SnackBarComponent
   ],
+  entryComponents: [CodeDialogComponent,SnackBarComponent],
   imports: [
     MatDatepickerModule,
     BrowserAnimationsModule,
@@ -70,6 +79,8 @@ import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule} fr
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
+    MatSnackBarModule,
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
@@ -85,7 +96,7 @@ import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule} fr
     NpnSliderModule,
     NgbModule
   ],
-  providers: [CarsService, UsersService, MatDatepickerModule,AuthenticationService, FileService,BookingsService,GoogleMapsAPIWrapper],
+  providers: [CarsService, UsersService, MatDatepickerModule,AuthenticationService, FileService,BookingsService,GoogleMapsAPIWrapper,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

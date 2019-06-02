@@ -1,7 +1,15 @@
 .container{
   position: relative;
-  top:100px;
+  top:10px;
 
+}
+
+.parallax-container{
+  background-image: url('../../assets/images/car.jpg');
+  height: 700px;
+  background-size: cover;
+  padding-top: 50px;
+  color: #ffff;
 }
 .credit-card-box .panel-title {
   display: inline;
