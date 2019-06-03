@@ -1,6 +1,26 @@
 <app-navbar></app-navbar>
 
     <div class="container">
+      <br>
+        <mat-tab-group>
+            <mat-tab label="Completed Trips"> 
+             <div *ngIf = "listBookings.length!==0;then completed;else other_content"></div>
+              kdjhskjdhfkjsfh
+            </mat-tab>
+            <mat-tab label="Pending Trips"> 
+              skdjfhskjhfkshfksjh
+             <div *ngIf = "listBookings.length!==0;then pending;else other_content"></div>
+            </mat-tab>
+        </mat-tab-group>
+        
+        <ng-template #completed>
+            completed
+        </ng-template>
+
+        <ng-template #pending>
+           pending
+        </ng-template>
+
         <div *ngIf="listBookings.length!==0;else other_content">
             <div class="panel panel-primary" *ngFor = "let book of listBookings">
                 <div class="panel-heading">
