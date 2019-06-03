@@ -10,6 +10,7 @@ const STRIPE_KEY = process.env.STRIPE_TEST;
 const bookingService = require('../services/booking-service');
 
 const stripe = require('stripe')(STRIPE_KEY);
+
 /**
  * Returns a list of stickies in JSON based on the
  * search parameters.

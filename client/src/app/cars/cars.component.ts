@@ -19,9 +19,13 @@ declare var $: any;
 })
 export class CarsComponent implements OnInit {
 
-   filters = [
-     ['carName', 'Car Name'], ['seatCount', 'Seat Count'], ['carYear', 'Year of Manufacture'],['city', 'City']
-    ];
+  //  filters = [
+  //    ['carName', 'Car Name'], ['seatCount', 'Seat Count'], ['carYear', 'Year of Manufacture'],['city', 'City']
+  //   ];
+
+  filters = [
+    ['carName', 'Car Name'],  ['carYear', 'Year of Manufacture'],['city', 'City']
+   ];
    filterString;
    filterStringplace;
    selcetedValue : string;
