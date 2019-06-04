@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { MatTabsModule } from '@angular/material';
 import * as moment from 'moment';
 
+
 @Component({
   selector: 'app-bookings',
   templateUrl: './bookings.component.html',
@@ -16,8 +17,7 @@ export class BookingsComponent implements OnInit {
    *
    * Variables
    */
-  listBookings= [];
-  
+  listBookings= [];  
   cancelledBookings = [];
   confirmedBookings = [];
 
@@ -70,7 +70,6 @@ export class BookingsComponent implements OnInit {
           this.booking['carName'] = car['carName'];
           this.booking['carImagePath'] =car['carImagePath'];
           this.booking['receipt_url'] = booking['receipt_url'];
-
           var bookingEnd = new Date(this.booking['booking_endTime']).getTime();
           var bookingToday = new Date(todayFinal).getTime();
 

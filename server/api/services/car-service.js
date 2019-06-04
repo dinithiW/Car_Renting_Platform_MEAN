@@ -5,7 +5,8 @@
 'use strict';
 const mongoose = require('mongoose');
 const Car = mongoose.model('cars');
-
+Car.watch().
+    on('change', (data) => console.log(data));
 /**
  * Throws error if error object is present.
  *
