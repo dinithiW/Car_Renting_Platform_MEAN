@@ -104,17 +104,14 @@ export class ListCarComponent implements OnInit {
       this.Files.uploadFile(this.file, this.user[0]._id).then(
         data =>{
         this.filePath = data;
-        //alert(this.filePath);
         console.log('hey this is the path');
         console.log(this.filePath);
         this.createCarObj();
         });
     }
     else{
-
-     // this.filePath = this.oldCar.carImagePath;
-
-      this.createCarObj();
+        // this.filePath = this.oldCar.carImagePath;
+        this.createCarObj();
     }
   }
 
@@ -148,7 +145,6 @@ export class ListCarComponent implements OnInit {
       }
       else{
         console.log("Inside Else");
-        //console.log(JSON.parse(localStorage.currentUser)[0]._id);
         this.carservice.putCar(car);
         alert('Successfully added');
         this.router.navigate(['/allCars']).then(()=>{
@@ -159,29 +155,6 @@ export class ListCarComponent implements OnInit {
 
   }
 
-
-
-  //Method to get location co-ordinates from Google APIs.
-  getLocation(address) {
-  console.log("in get location::::::::"+ address);
-  this.geocoder = new google.maps.Geocoder()
-//  if (!this.geocoder) this.geocoder = new google.maps.Geocoder()
-    this.geocoder.geocode({
-      'address': address
-    }, (results, status) => {
-      console.log(results);
-      if (status == google.maps.GeocoderStatus.OK) {
-                // decompose the result
-                console.log(results[0].geometry.bounds.j.l);
-                console.log(results[0].geometry.bounds.l.l);
-
-              
-
-      } else {
-        alert("Sorry, this search produced no results.");
-      }
-    })
-  }
   onFileUpload(event){
       this.file = event.target.files[0];
      console.log(this.file);
