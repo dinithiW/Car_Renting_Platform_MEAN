@@ -4,54 +4,77 @@
       <br>
         <mat-tab-group>
             <mat-tab label="Completed Trips"> 
-             <div *ngIf = "listBookings.length!==0;then completed;else other_content"></div>
-              kdjhskjdhfkjsfh
+             <div *ngIf = "completedTrips.length!==0;then completed;else other_content"></div>
+              
             </mat-tab>
             <mat-tab label="Pending Trips"> 
-              skdjfhskjhfkshfksjh
-             <div *ngIf = "listBookings.length!==0;then pending;else other_content"></div>
+              
+             <div *ngIf = "pendingTrips.length!==0;then pending;else other_content"></div>
             </mat-tab>
         </mat-tab-group>
         
         <ng-template #completed>
-            completed
+            
+            <div class="panel panel-primary" *ngFor = "let book of completedTrips">
+              <div class="panel-heading">
+                <h3 class="panel-title"><a href="{{book.receipt_url}}">{{'Booking ID is '+book.id}}</a></h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div  class="col-md-4">
+                    <p>{{'Booking Car Name:-'+book.carName}}</p>
+                    <p>{{'Booking Start Time:-'+book.booking_startTime}}</p>
+                    <p>{{'Booking End Time:-'+book.booking_endTime}}</p>
+                    <p>{{'Booking Date:-'+book.bookingDate}}</p>
+                    <p>{{'Booking status:-' + book.status}}</p>
+                    <p></p>
+                    <!-- <ngb-rating  [readonly]="readonly" [(rate)]="rating" class="starRate"></ngb-rating> -->
+                    <!-- <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (click)="onClick($event)" (leave)="hovered=0" [readonly]="readonly"  [max]=5></ngb-rating>
+                      {{selected}} -->
+                  </div>
+                  <div class="col-md-8">
+                    <img class="img-thumbnail pull-right"[src] = book.carImagePath width="100" height="100">
+                    <!-- <button class="btn btn-primary" (click)="cancelBooking(book.id)" *ngIf="time > book.ISODate">Cancel</button> -->
+                  </div>
+
+                </div>
+              </div>
+            </div>
         </ng-template>
 
         <ng-template #pending>
-           pending
-        </ng-template>
-
-        <div *ngIf="listBookings.length!==0;else other_content">
-            <div class="panel panel-primary" *ngFor = "let book of listBookings">
+            <div class="panel panel-primary" *ngFor = "let book of pendingTrips">
                 <div class="panel-heading">
-                  <h3 class="panel-title">{{'Booking ID is '}} <a [routerLink]="['/booking-confirm', book.id]">{{book.id}} </a></h3>
+                  <h3 class="panel-title"><a href="{{book.receipt_url}}">{{'Booking ID is '+book.id}}</a></h3>
                 </div>
                 <div class="panel-body">
                   <div class="row">
                     <div  class="col-md-4">
                       <p>{{'Booking Car Name:-'+book.carName}}</p>
-                      <p>{{'Booking Start Time:-'+book.booking_startTime}}</p>
+                      <p>{{'Booking Car Name:-'+book.booking_startTime}}</p>
                       <p>{{'Booking End Time:-'+book.booking_endTime}}</p>
                       <p>{{'Booking Date:-'+book.bookingDate}}</p>
-                      <p>{{'Booking Status:-'+book.status}}</p>
-                      <ngb-rating [(rate)]="book.userRating" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="true" *ngIf="book.end.getTime() < now.getTime()"  [max]=5></ngb-rating>
-                        {{book.userRating}}
+                      <p>{{'Booking status:-' + book.status}}</p>
+                      <p></p>
+                      <!-- <ngb-rating  [readonly]="readonly" [(rate)]="rating" class="starRate"></ngb-rating> -->
+                      <!-- <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (click)="onClick($event)" (leave)="hovered=0" [readonly]="readonly"  [max]=5></ngb-rating>
+                        {{selected}} -->
                     </div>
                     <div class="col-md-8">
                       <img class="img-thumbnail pull-right"[src] = book.carImagePath width="100" height="100">
-                      <button class="btn btn-primary" (click)="cancelBooking(book.id)" *ngIf="book.end.getTime() > now.getTime()">Disapprove</button>
+                      <!-- <button class="btn btn-primary" (click)="cancelBooking(book.id)" *ngIf="time > book.ISODate">Cancel</button> -->
                     </div>
-
+  
                   </div>
                 </div>
               </div>
-        </div>
+        </ng-template>
+
+        
 
         <ng-template #other_content>
-            <ngb-alert type="danger">
-               Hey you dont any bookings
-          </ngb-alert>
-
+          <br>
+           <b>You don't have any trips</b>
         </ng-template>
 
 

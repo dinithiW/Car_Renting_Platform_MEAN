@@ -83,6 +83,9 @@ onSubmit(f:NgForm){
    var fromVal = f.value.from;
    var untilVal = f.value.until;
 
+   console.log('fromVal is');
+   console.log(fromVal);
+   
    var mFromVal = moment(fromVal,"MM-DD-YYYY");
    var mUntilVal = moment(untilVal,"MM-DD-YYYY");
 

@@ -4,9 +4,40 @@
 
         <!-- <mat-tab-group (selectedTabChange)="showContent($event)"> -->
         <mat-tab-group>
-            <mat-tab label="Confirmed"> <div *ngIf = "confirmedBookings.length!==0;then confirmed;else other_content"></div></mat-tab>
-            <mat-tab label="Cancelled"> <div *ngIf = "cancelledBookings.length!==0;then cancelled;else other_content"></div></mat-tab>
+            <mat-tab label="Completed Trips"><div *ngIf = "completedTrips.length!==0;then completed;else other_content"></div></mat-tab>
+            <mat-tab label="Pending Trips"> <div *ngIf = "pendingTrips.length!==0;then pending;else other_content"></div></mat-tab>
+            <mat-tab label="Cancelled Trips"> <div *ngIf = "cancelledBookings.length!==0;then cancelled;else other_content"></div></mat-tab>
         </mat-tab-group>
+
+
+        <ng-template #completed>
+          <div class="panel panel-primary" *ngFor = "let book of completedTrips">
+              <div class="panel-heading">
+                <h3 class="panel-title"><a href="{{book.receipt_url}}">{{'Booking ID is '+book.id}}</a></h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div  class="col-md-4">
+                    <p>{{'Booking Car Name:-'+book.carName}}</p>
+                    <p>{{'Booking Car Name:-'+book.booking_startTime}}</p>
+                    <p>{{'Booking End Time:-'+book.booking_endTime}}</p>
+                    <p>{{'Booking Date:-'+book.bookingDate}}</p>
+                    <p>{{'Booking status:-' + book.status}}</p>
+                    <p></p>
+                     <!-- <ngb-rating  [readonly]="readonly" [(rate)]="rating" class="starRate"></ngb-rating> -->
+                     <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (click)="onClick($event)" (leave)="hovered=0" [readonly]="readonly"  [max]=5></ngb-rating>
+                      {{selected}} 
+                  </div>
+                  <div class="col-md-8">
+                    <img class="img-thumbnail pull-right"[src] = book.carImagePath width="100" height="100">
+                    <!-- <button class="btn btn-primary" (click)="cancelBooking(book.id)" *ngIf="time > book.ISODate">Cancel</button> -->
+                  </div>
+
+                </div>
+              </div>
+            </div>
+      </ng-template>
+
 
         <ng-template #cancelled>
             <div class="panel panel-primary" *ngFor = "let book of cancelledBookings">
@@ -36,8 +67,8 @@
               </div>
         </ng-template>
 
-        <ng-template #confirmed>
-            <div class="panel panel-primary" *ngFor = "let book of confirmedBookings">
+        <ng-template #pending>
+            <div class="panel panel-primary" *ngFor = "let book of pendingTrips">
                 <div class="panel-heading">
                   <h3 class="panel-title"><a href="{{book.receipt_url}}">{{'Booking ID is '+book.id}}</a></h3>
                 </div>
@@ -51,8 +82,8 @@
                       <p>{{'Booking status:-' + book.status}}</p>
                       <p></p>
                       <!-- <ngb-rating  [readonly]="readonly" [(rate)]="rating" class="starRate"></ngb-rating> -->
-                      <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (click)="onClick($event)" (leave)="hovered=0" [readonly]="readonly"  [max]=5></ngb-rating>
-                        {{selected}}
+                      <!-- <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (click)="onClick($event)" (leave)="hovered=0" [readonly]="readonly"  [max]=5></ngb-rating>
+                        {{selected}} -->
                     </div>
                     <div class="col-md-8">
                       <img class="img-thumbnail pull-right"[src] = book.carImagePath width="100" height="100">
