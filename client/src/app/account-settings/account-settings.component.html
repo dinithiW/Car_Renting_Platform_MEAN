@@ -1,9 +1,23 @@
 <app-navbar></app-navbar>
-<div class="comtainer">
+<div class="rows">
+<div class="container row">
+
+    <div class="topic-row">
+        Let's get started 
+    </div>
+<div class="col s12">
+    <div class="card z-depth-2">
+        <div class="card-content white-text">
   <form [formGroup]="registerForm" (ngSubmit)="addUser()">
-      <div class="form-row">
-          <legend><label class="form-header"> Let's get started </label></legend>
-      </div>
+
+      <div class="form-row profPic">
+          <div class="form-group">
+            <label for="profPic">Profile Picture</label>
+            <input type="file"  class="form-control" id="profPic" formControlName="profPic" [ngClass]="{ 'is-invalid': submitted && f.profPic.errors }" (change)="checkFile($event)">
+  
+          </div>
+        </div>
+
       <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputFName">First Name</label>
@@ -61,7 +75,7 @@
         <div class="form-group col-md-4">
           <label for="inputState">State</label>
             <div ng-app="myApp" ng-controller="myCtrl">
-              <select class="form-control" formControlName="state" [ngClass]="{ 'is-invalid': submitted && f.state.errors }" [(ngModel)] = "userObj.State">
+              <select class="form-control" matNativeControl formControlName="state" [ngClass]="{ 'is-invalid': submitted && f.state.errors }" [(ngModel)] = "userObj.State">
                 <option selected>Choose ...</option>
                 <option *ngFor="let item of states">{{item}}</option>
               </select>
@@ -79,20 +93,15 @@
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label for="profPic">Profile Picture</label>
-          <input type="file" class="form-control" id="profPic" formControlName="profPic" [ngClass]="{ 'is-invalid': submitted && f.profPic.errors }" (change)="checkFile($event)">
 
-        </div>
-      </div>
 
       <div class="form-group">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck" formControlName="alerts" [ngClass]="{ 'is-invalid': submitted && f.alerts.errors }">
-          <label class="form-check-label" for="gridCheck">
-            I agree to terms and conditions
-          </label>
+            <label>
+                <input type="checkbox"   id="gridCheck" formControlName="alerts" [ngClass]="{ 'is-invalid': submitted && f.alerts.errors }" />
+                <span>I agree to terms and conditions</span>
+              </label>
+     
         </div>
         <div *ngIf="submitted && f.alerts.errors" class="invalid-feedback">
               <div *ngIf="f.alerts.errors.required">Please accept the terms and conditions!</div>
@@ -100,11 +109,14 @@
       </div>
       <div class="form-group">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck2">
-            <label class="form-check-label" for="gridCheck2">
 
-              Sign me up for email updates
-            </label>
+
+            <label>
+                <input type="checkbox"   id="gridCheck2" formControlName="alerts" [ngClass]="{ 'is-invalid': submitted && f.alerts.errors }" />
+                <span>Sign me up for email updates</span>
+              </label>
+
+            Sign me up for email updates
           </div>
         </div>
       <div class="form-group btn-group">
@@ -113,4 +125,8 @@
 
     </form>
 
+</div>
+</div>
+</div>
+</div>
 </div>

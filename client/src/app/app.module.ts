@@ -45,7 +45,6 @@ import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule, Ma
 import { CarBookingComponent } from './car-booking/car-booking.component';
 import { CodeDialogComponent } from './register/register.component';
 import {SnackBarComponent } from './register/register.component';
-import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 @NgModule({
   declarations: [
@@ -72,7 +71,6 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     DateRangePickerComponent,
     CodeDialogComponent,
     SnackBarComponent,
-    ForgetPasswordComponent,
     ResetPasswordComponent
   ],
   entryComponents: [CodeDialogComponent,SnackBarComponent],
