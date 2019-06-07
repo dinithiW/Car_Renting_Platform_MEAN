@@ -23,20 +23,20 @@
   
   <tbody>
     <tr *ngFor="let car of cars">
-      <td >{{car[0].carName}}</td>
-      <td>{{car[0].carYear}}</td>
-      <td>{{car[0].carPrice}}</td>
-      <td>{{car[0].description}}</td>
-      <td>{{car[0].features}}</td>
-      <td>{{car[0].dailyDistance}}</td>
-      <td>{{car[0].fuelType}}</td>
-      <td>{{car[0].doorCount}}</td>
-      <td>{{car[0].seatCount}}</td>
-      <td>{{car[0].address}}</td>
-      <td>{{car[0].city}}</td>
-      <td>{{car[0].zip}}</td>
-      <td><a class="btn text-danger" (click)="onEdit(car[0],car[0]._id)"><i class="fa fa-pencil"></i></a></td>
-      <td><a class="btn text-danger" (click)="onDelete(car[0]._id)"><i class="fa fa-trash"></i></a></td>
+      <td >{{car.carName}}</td>
+      <td>{{car.carYear}}</td>
+      <td>{{car.carPrice}}</td>
+      <td>{{car.description}}</td>
+      <td>{{car.features}}</td>
+      <td>{{car.dailyDistance}}</td>
+      <td>{{car.fuelType}}</td>
+      <td>{{car.doorCount}}</td>
+      <td>{{car.seatCount}}</td>
+      <td>{{car.address}}</td>
+      <td>{{car.city}}</td>
+      <td>{{car.zip}}</td>
+      <td><a class="btn text-danger" (click)="onEdit(car,car._id)"><i class="fa fa-pencil"></i></a></td>
+      <td><a class="btn text-danger" (click)="onDelete(car._id)"><i class="fa fa-trash"></i></a></td>
       
     
   </tbody>

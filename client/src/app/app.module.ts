@@ -41,11 +41,13 @@ import { NotFoundComponentComponent } from './not-found-component/not-found-comp
 import { CarTripsComponent } from './car-trips/car-trips.component';
 import { AllCarsComponent } from './all-cars/all-cars.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule, MatDialogModule,MatSnackBarModule} from '@angular/material';
+
+import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule, MatDialogModule,MatSnackBarModule, MatTabsModule} from '@angular/material';
 import { CarBookingComponent } from './car-booking/car-booking.component';
 import { CodeDialogComponent } from './register/register.component';
 import {SnackBarComponent } from './register/register.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +70,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     CarTripsComponent,
     AllCarsComponent,
     CarBookingComponent,
-    DateRangePickerComponent,
+    // DateRangePickerComponent,
     CodeDialogComponent,
     SnackBarComponent,
     ResetPasswordComponent
@@ -76,6 +78,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
   entryComponents: [CodeDialogComponent,SnackBarComponent],
   imports: [
     MatDatepickerModule,
+    MatTabsModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatNativeDateModule,

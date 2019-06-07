@@ -18,8 +18,15 @@ declare var $: any;
   styleUrls: ['./cars.component.css']
 })
 export class CarsComponent implements OnInit {
-
-   filters = ['carName', 'seatCount', 'carYear','city'];
+  //  filters = [
+  //    ['carName', 'Car Name'], ['seatCount', 'Seat Count'], ['carYear', 'Year of Manufacture'],['city', 'City']
+  //   ];
+  //  filters = [
+  //    ['carName', 'Car Name'], ['seatCount', 'Seat Count'], ['carYear', 'Year of Manufacture'],['city', 'City']
+  //   ];
+  filters = [
+    ['carName', 'Car Name'],  ['carYear', 'Year of Manufacture'],['city', 'City']
+   ];
    filterString;
    filterStringplace;
    selcetedValue : string;
@@ -77,6 +84,9 @@ onSubmit(f:NgForm){
    var fromVal = f.value.from;
    var untilVal = f.value.until;
 
+   console.log('fromVal is');
+   console.log(fromVal);
+   
    var mFromVal = moment(fromVal,"MM-DD-YYYY");
    var mUntilVal = moment(untilVal,"MM-DD-YYYY");
 
@@ -112,8 +122,8 @@ onSubmit(f:NgForm){
              this.cars = this.cars.filter((car)=>{
               console.log('yeeee');
               console.log(car['_id']);
-              console.log(element['carID']);
-               return car['_id']!== element['carID']
+              console.log(element['carId']);
+               return car['_id']!== element['carId']
             })
        });
     }

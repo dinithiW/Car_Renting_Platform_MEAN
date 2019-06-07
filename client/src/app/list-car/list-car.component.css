@@ -9,3 +9,7 @@
 .container {
 	 width: 95%;
 }
+
+.invalid-feedback{
+	color: rgb(218, 13, 13) !important;
+}
