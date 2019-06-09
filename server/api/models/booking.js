@@ -21,15 +21,15 @@ const BookingSchema = new Schema({
     type: String,
     required: 'Car is required',
   },
-  startDate: {
+  booking_startTime: {
     type: String,
     required: 'start time is required',
   },
-  endDate: {
+  booking_endTime: {
     type: String,
     required: 'end time is required',
   },
-  bookingprice: {
+  booking_price: {
     type: Number,
     required: 'Price is required',
   },

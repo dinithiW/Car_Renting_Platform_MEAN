@@ -72,6 +72,7 @@ private ratingArr = [];
 private ratingSum = 0;
 private carTempImg = 'assets/images/Sinnbild_car.png ';
 private test_pic = 'assets/images/test-profilepic.png';
+
 constructor(
   private carservice:  CarsService,
   config: NgbRatingConfig,
@@ -95,7 +96,7 @@ constructor(
 
   ngOnInit() {
     $(document).ready(function() {
-      $('.datepicker').datepicker();
+      $('#example-date-input').datepicker();
     });
     this.rating = 0;
     this.isLoggedIn = this.authService.checkLoggedInUser();

@@ -100,7 +100,7 @@
         
         <br>
         <span>
-          <span class="price-style">$</span>
+          <span class="price-style">Rs. </span>
           <span class="price-style"> <b>{{price}}</b></span>
           <span class="currency-style" >per day</span>
         </span>
@@ -145,7 +145,17 @@
 
             <div class="bookingDetailsHeading" > <label for="" >Trip End</label> </div>
             <span class="bookingDetailsHeading">
-              <input class="form-control dateStyle" type="date" name="endDate" ngModel id="example-date-input">
+
+                
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Trip End</mat-label>
+                    <input   matInput [matDatepicker]="myPicker"  placeholder="date" [ngModel] ="from | date:'MM-dd-yyyy' " id ="from" name="from">
+                    <mat-datepicker-toggle  matSuffix [for]="myPicker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #myPicker></mat-datepicker>
+                </mat-form-field>
+
+              <input class="form-control  datepicker" type="date" name="endDate" ngModel id="example-date-input">
               <input class="form-control timeStyle" type="time" name="endTime" ngModel id="example-time-input">
             </span>
 
@@ -166,7 +176,7 @@
         </div> 
           <hr class="half-rule"/>
           <p class="carDescription">DISTANCE INCLUDED</p>
-        <div class="reservationDetails">
+        <!-- <div class="reservationDetails">
           <div><b>Day</b></div>
           <div><b>{{dailyDistance}} mi</b></div>
         </div>
@@ -178,7 +188,7 @@
           <div><b>Month</b></div>
           <div><b>{{monthlyDistance}} mi</b></div>
         </div> 
-          <hr class="half-rule"/>
+          <hr class="half-rule"/> -->
         <div class="ownerDetails">
 
             <div>

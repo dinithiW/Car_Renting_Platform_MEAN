@@ -1,10 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { BookingsService } from '../services/bookings.service';
 import { CarsService } from '../services/cars.services';
 import { UsersService } from '../services/users.service';
 import { Observable } from 'rxjs';
 import { MatTabsModule } from '@angular/material';
 import * as moment from 'moment';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { UpdateBookingComponent } from './update-booking/update-booking.component';
+
+export interface DialogData {
+  bookingId: any;
+  animal: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-bookings',
@@ -30,8 +38,11 @@ export class BookingsComponent implements OnInit {
   readonly = false;
 
   now = new Date();
-
-  constructor(private bookings:BookingsService,private carsService:CarsService,private userService:UsersService) { }
+  
+  animal: string;
+  name: string;
+  bookingId: string;
+  constructor(public dialog: MatDialog,private bookings:BookingsService,private carsService:CarsService,private userService:UsersService) { }
 
   ngOnInit() {
 
@@ -52,17 +63,19 @@ export class BookingsComponent implements OnInit {
     var todayFinal = parseToday[0]+'Z';
 
     this.bookings.getBookings( JSON.parse(localStorage.currentUser)[0]._id).then((data) => {
-      console.log(data);
+      console.log('data isssssssss',data);
 
       for( let booking of data as string[]){
-
+        console.log('booking',booking);
         this.carsService.getCar(booking['carId']).then((data2) => {
+          console.log('carId is',booking['carId']);
           this.booking ={};
           
           this.booking['id']= booking['_id'];
           this.booking['bookingDate'] =booking['created_date']
-          this.booking['booking_startTime']=booking['booking_startTime'];
-          this.booking['booking_endTime']=booking['booking_endTime'];
+          this.booking['booking_startTime']=(booking['booking_startTime']);
+          this.booking['booking_displayStart'] = ((booking['booking_startTime']).split('T'))[0];
+          this.booking['booking_endTime']=(booking['booking_endTime']);
           this.booking['ISODate'] = new Date(booking['booking_endTime']);
           console.log( new Date(booking['booking_endTime']))
           let car = data2 as string []
@@ -94,7 +107,7 @@ export class BookingsComponent implements OnInit {
             this.booking['status']="Cancelled";
             this.cancelledBookings.push(this.booking);
           }
-          this.listBookings.push(this.booking);
+          //this.listBookings.push(this.booking);
 
        });
       }
@@ -102,6 +115,19 @@ export class BookingsComponent implements OnInit {
    });
   }
 
+  openDialog(input): void {
+    const dialogRef = this.dialog.open(UpdateBookingComponent, {
+      width: '1000px',
+      data: {name: this.name, animal: this.animal, bookingId:input}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(this.animal);
+      this.animal = result;
+    });
+  }
+  
   cancelBooking(input){
     console.log(input);
     let params = {"active" : 0}

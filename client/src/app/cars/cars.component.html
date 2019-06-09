@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<div class = "container">
 <div class="rows">
     <div class="container row">
       <div class="col s12">
@@ -28,11 +29,11 @@
              <!-- <input type="text" class="datepicker" [(ngModel)] ="from" id ="from" name="from" placeholder="From:">  -->
 
 
-             <mat-form-field class="example-full-width">
+             <mat-form-field>
                 <mat-label>Date</mat-label>
                 <input   matInput [matDatepicker]="myPicker"  placeholder="date" [ngModel] ="from | date:'MM-dd-yyyy' " id ="from" name="from">
                 <mat-datepicker-toggle  matSuffix [for]="myPicker"></mat-datepicker-toggle>
-                <mat-datepicker #myPicker></mat-datepicker>
+                <mat-datepicker touchUi #myPicker></mat-datepicker>
             </mat-form-field>
 
                <!--<label for="inputPassword2" class="sr-only">From</label> 
@@ -50,8 +51,9 @@
                 <mat-label>Date</mat-label>
                 <input   matInput [matDatepicker]="myPickers"  placeholder="date" [(ngModel)] ="until" id ="until" name="until" >
                 <mat-datepicker-toggle  matSuffix [for]="myPickers"></mat-datepicker-toggle>
-                <mat-datepicker #myPickers></mat-datepicker>
+                <mat-datepicker touchUi #myPickers></mat-datepicker>
             </mat-form-field>
+            
       </div>
        
        
@@ -111,7 +113,7 @@
                 </div>
                 <div class="card-content">
                     <span class="card-title">{{car.carName}}<span class="year small" id="year"> - {{car.carYear}}</span></span>
-                    <div class="stars"><p>{{car.carTrips}} trips</p></div>
+                    <!-- <div class="stars"><p>{{car.carTrips}} trips</p></div> -->
                 </div>
                 <div class="card-action">
                   <a [routerLink]= "['/bookcar',car._id]" >Book Now</a>
@@ -136,4 +138,4 @@
 </div>
 </div>
 
-
+</div>

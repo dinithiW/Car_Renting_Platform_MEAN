@@ -1,0 +1,33 @@
+.inputClass{
+    border-bottom: none!important;
+    border:none!important; 
+    box-shadow: none!important;	
+    outline: none!important; background: none!important;
+    padding-bottom: -100px;
+    } 
+
+.inputClass:focus{ 
+    border:none!important; 
+    box-shadow: none!important;	
+    outline: none!important;	
+    background: none!important; 
+}
+
+.contentDiv{
+    margin: 0%;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.397);
+  }
+  .container{
+    width: 95%;
+  }
+  

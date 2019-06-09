@@ -46,6 +46,7 @@ import { MatIconModule,MatFormFieldModule,MatNativeDateModule,MatInputModule, Ma
 import { CarBookingComponent } from './car-booking/car-booking.component';
 import { CodeDialogComponent } from './register/register.component';
 import {SnackBarComponent } from './register/register.component';
+import { UpdateBookingComponent } from './bookings/update-booking/update-booking.component';
 
 
 
@@ -75,9 +76,11 @@ import {SnackBarComponent } from './register/register.component';
     CarBookingComponent,
     // DateRangePickerComponent,
     CodeDialogComponent,
-    SnackBarComponent
+    SnackBarComponent,
+    UpdateBookingComponent
   ],
-  entryComponents: [CodeDialogComponent,SnackBarComponent],
+  entryComponents: [CodeDialogComponent,SnackBarComponent,UpdateBookingComponent],
+  exports: [ UpdateBookingComponent ],
   imports: [
     MatDatepickerModule,
     MatTabsModule,
@@ -88,6 +91,7 @@ import {SnackBarComponent } from './register/register.component';
     MatInputModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,

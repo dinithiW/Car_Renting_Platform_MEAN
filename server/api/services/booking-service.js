@@ -82,6 +82,8 @@ exports.findByDate = function(startDate, endDate, callback) {
 };
 
 exports.update = function(booking, callback) {
+  console.log("I'm in boooking weeeeeeeee")
+  console.log(booking)
   const resultCallback = function(err, booking) {
     throwError(err);
     callback(booking);
@@ -92,4 +94,28 @@ exports.update = function(booking, callback) {
   }, booking, {
     new: true,
   }, resultCallback);
+};
+
+exports.update2 = function(booking, callback) {
+  console.log("I'm in boooking weeeeeeeeetamin")
+  console.log(booking)
+  console.log(booking.booking_endTime)
+  console.log(booking.booking_price)
+  const resultCallback = function(err, booking) {
+    throwError(err);
+    callback(booking);
+  };
+  booking.modified_date = new Date();
+  Booking.findByIdAndUpdate(booking._id,{
+    carId: booking.carId,
+    booking_price: booking.booking_price,
+
+     booking_startTime: booking.booking_startTime,
+     booking_endTime: booking.booking_endTime
+  }, (err,bookings)=>{
+    console.log("aneeeeeeeeeeeeeeeeeeeee")
+    if(err) console.log("there is an errorrrrrrrr")//resultCallback.send(500).json(err)
+    else resultCallback(err,booking)
+    console.log(err)
+  });
 };

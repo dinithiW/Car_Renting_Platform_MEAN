@@ -9,7 +9,17 @@ const sms = require('../helpers/sms');
 const STRIPE_KEY = process.env.STRIPE_TEST;
 const bookingService = require('../services/booking-service');
 
-const stripe = require('stripe')(STRIPE_KEY);
+
+
+
+
+
+//const stripe = require('stripe')(STRIPE_KEY);
+
+
+
+
+
 
 /**
  * Returns a list of stickies in JSON based on the
@@ -107,13 +117,21 @@ exports.find = function(request, response) {
 };
 
 exports.update = function(request, response) {
+  console.log("ahemmmmmmmmmm")
   console.log(request.body);
   const booking = Object.assign({}, request.body);
-  const callback = function(booking) {
+  const callback = function(bookings) {
     response.status(200);
-    response.json(booking);
+    response.json(bookings);
   };
   booking._id = request.params.bookingId;
+  console.log('Hey man');
   console.log(booking);
-  bookingService.update(booking, callback);
+  if(booking.updateThis){
+    bookingService.update2(booking, callback);
+  }
+  else{
+    bookingService.update(booking, callback);
+  }
+  
 };
