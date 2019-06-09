@@ -13,6 +13,6 @@ matrix:
         directories:
           - "node_modules"
       script:
-        - nodemon index
+        - node index
       services:
         - mongodb
