@@ -43,9 +43,7 @@ export class CarBookingComponent implements OnInit {
     private booking: BookingsService, private active: ActivatedRoute,private datePipe: DatePipe) {
       
      }
-
-
-
+  
   ngOnInit() {
     $(document).ready(function() {
       $('.datepicker').datepicker();
