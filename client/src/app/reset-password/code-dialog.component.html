@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Enter Verification Code</h1>
+<div class="row">
+  <div class="input-field col s12">
+      <label for="inputFname">6 Digit Code</label>
+    <input type="text" id="code" [(ngModel)] = "data.enteredCode">
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <button class="btn btn-custom left" (click)="onNoClick()" >Cancel</button>
+        <button class="btn btn-custom right" [mat-dialog-close]="data.enteredCode">Verify</button>
+      </div>
+    </div>

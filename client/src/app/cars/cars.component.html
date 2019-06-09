@@ -11,14 +11,14 @@
     <form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
         
 
-       <div class="row">
+       <!-- <div class="row">
         <div class="input-field col s12">
             <label for="inputPassword2" class="sr-only">Where</label>
             <input type="text" class="form-control" id="" placeholder="Place" name="place"[(ngModel)]="filterStringplace">
         </div>
-      </div> 
-
-      <h5 class = "light">Search by Date</h5>
+      </div>  -->
+<br>
+      <h5 class = "light"><b>Search by Date</b></h5>
       <div class="row">
 
           <div class="input-field col s6"> 
@@ -58,13 +58,13 @@
         
           
           
-           <h5 class="light">More Filters</h5>
+           <h5 class="light"><b>More Filters</b></h5>
           <div class="row">
               
                 <mat-form-field class="input-field col s6">
                     <mat-select placeholder = "Filters" 
                        [(ngModel)] = "selcetedValue" name="selectFilter">
-                       <mat-option *ngFor = "let  filter of filters" [value] = "filter"> {{filter}}
+                       <mat-option *ngFor = "let  filter of filters" [value] = "filter[0]"> {{filter[1]}}
                          
                        </mat-option>
                     </mat-select>
@@ -103,9 +103,9 @@
 <div class="container">
       <div class="row">
         
-          <a class="col s3" [routerLink]="['/cars',car._id]" *ngFor="let car of cars | filter:filterString:selcetedValue | place:filterStringplace">
+          <a class="col s3" [routerLink]="['/cars',car._id]" *ngFor="let car of cars | filter:filterString:selcetedValue">
               <div class="card">
-                <div class="card-image">
+                <div class="card-image">`
                     <img class="card-img-top" [src]="car.carImagePath" alt="Card image cap">
                     <span class="badge badge-light">Rs.{{car.carPrice}} / <span class="small">day</span></span>
                 </div>

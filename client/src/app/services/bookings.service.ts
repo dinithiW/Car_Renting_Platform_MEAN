@@ -116,4 +116,22 @@ export class BookingsService {
 
 
   }
+
+  //cancelled or confirmed
+  getSelectedCars(query1,query2){
+    let promise = new Promise((resolve, reject) => {
+
+      this.httpClient.get("http://localhost:3000/bookings?userId="+ query1+"&isActive="+ query2).subscribe(
+
+        (data) => {
+          console.log('there are someeeeee');
+          console.log(data);
+          resolve(data);
+        },
+        (err) => {
+          reject(err);
+        });
+    });
+    return promise;
+  }
 }
