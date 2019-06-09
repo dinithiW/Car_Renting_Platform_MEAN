@@ -1,0 +1,18 @@
+sudo: required
+dist: trusty
+matrix:
+  include:
+    - language: node_js
+      node_js:
+        - "stable"
+      before_script:
+        - cd server
+        - npm install
+        
+      cache:
+        directories:
+          - "node_modules"
+      script:
+        - nodemon index
+      services:
+        - mongodb
