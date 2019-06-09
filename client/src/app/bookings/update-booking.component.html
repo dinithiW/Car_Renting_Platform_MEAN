@@ -1,0 +1,107 @@
+<h1 mat-dialog-title>Booking Details</h1>
+<mat-dialog-content>
+
+  <div class = "container">
+      <div class="rows">
+          <div class="container row">
+              <div class="col s12">
+                  <div class="row">
+                      <div class="col s12">
+
+                          <form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
+                              <br>
+                              <h5 class = "light"><b>Search by Date</b></h5>
+                              <div class="row">
+                                  <div class="input-field col s6"> 
+                                      <mat-form-field>
+                                          <mat-label>Start Date</mat-label>
+                                          <input   matInput [matDatepicker]="myPicker"  placeholder="date" [ngModel] ="from | date:'MM-dd-yyyy' " id ="from" name="from">
+                                          <mat-datepicker-toggle  matSuffix [for]="myPicker"></mat-datepicker-toggle>
+                                          <mat-datepicker touchUi #myPicker></mat-datepicker>
+                                      </mat-form-field>
+                
+                                      <input class="form-control timeStyle" type="time" name="exampleFrom" ngModel id="exampleFrom">
+                                    </div>
+    
+                                  <div class="input-field col s6"> 
+                                      <mat-form-field >
+                                          <mat-label>End Date</mat-label>
+                                          <input   matInput [matDatepicker]="myPickers"  placeholder="date" [(ngModel)] ="until" id ="until" name="until" >
+                                          <mat-datepicker-toggle  matSuffix [for]="myPickers"></mat-datepicker-toggle>
+                                          <mat-datepicker touchUi #myPickers></mat-datepicker>
+                                      </mat-form-field>
+
+                                      <input class="form-control timeStyle" type="time" name="exampleUntil" ngModel id="exampleUntil">
+                                  </div>
+                                </div>
+
+                                <h5 class="light"><b>More Filters</b></h5>
+                                <div class="row">
+                  
+                                    <mat-form-field class="input-field col s6">
+                                        <mat-select placeholder = "Filters" 
+                                          [(ngModel)] = "selcetedValue" name="selectFilter">
+                                          <mat-option *ngFor = "let  filter of filters" [value] = "filter[0]"> {{filter[1]}}
+                                            
+                                          </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                     <div class="input-field col s6">
+                        <label for="Filter" class="sr-only">Filter</label>
+                        <input class="form-control" type="text" value="" id=""name="filter"[(ngModel)]="filterString" placeholder="Enter Filter Value">
+                      </div>
+              </div> 
+
+              
+              <button type="submit" class="btn btn-primary mb-2">Search</button>
+          </form>
+    
+    <div class="container">
+          <div class="row">
+            
+              <a class="col s3" role="button" (click) = "updateBooking(car._id,car.carPrice)" *ngFor="let car of cars | filter:filterString:selcetedValue">
+                  <div class="card">
+                    <div class="card-image">`
+                        <img class="card-img-top" [src]="car.carImagePath" alt="Card image cap">
+                        <span class="badge badge-light">Rs.{{car.carPrice}} / <span class="small">day</span></span>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">{{car.carName}}<span class="year small" id="year"> - {{car.carYear}}</span></span>
+                        <div class="stars"><p>{{car.carTrips}} trips</p></div>
+                    </div>
+                    
+                    <div class="card-action">
+                      <a role="button" (click) = "updateBooking(car._id,car.carPrice)" >Update</a>
+                    </div>
+                  </div>
+                </a>
+           
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    </div>
+
+  <!-- <mat-label>What's your favorite animal?</mat-label>&nbsp;&nbsp; -->
+  <!-- <mat-form-field> -->
+    <!-- <input  [(ngModel)]="data.animal"> -->
+
+
+    <!-- <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input   matInput [matDatepicker]="myPicker3"  placeholder="date" [ngModel] ="from | date:'MM-dd-yyyy' " id ="from" name="from">
+      <mat-datepicker-toggle  matSuffix [for]="myPicker"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #myPicker3></mat-datepicker>
+  </mat-form-field> -->
+
+
+  <!-- </mat-form-field> -->
+</mat-dialog-content>
+<div mat-dialog-actions>
+  <button  class="btn btn-primary" mat-button (click)="onNoClick()">OK</button>
+  <!-- <button  class="btn btn-primary" mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+</div>
