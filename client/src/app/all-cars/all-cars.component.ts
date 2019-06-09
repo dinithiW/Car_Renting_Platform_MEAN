@@ -33,20 +33,8 @@ export class AllCarsComponent implements OnInit {
     }
     this.carservice.getAllCars().then(
     data =>{
-      console.log(data);
-      var result = Object.keys(data).map(function(key) {
-      return [data[key]];
+      this.cars =data.sort((ob1,ob2) => new Date(ob2.modified_date).getTime() - new Date(ob1.modified_date).getTime());
     });
-    this.cars =result;
-    console.log(result);
-    //console.log(this.cars[0].carName);
-    //console.log(this.cars[1][0].carName);
-    //console.log((this.cars));
-    //this.populateCarsDetails(this.oldCar);
-    });
-    
-    
-    
   
   }
   onDelete(id){

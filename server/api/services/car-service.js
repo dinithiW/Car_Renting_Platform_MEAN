@@ -5,7 +5,6 @@
 'use strict';
 const mongoose = require('mongoose');
 const Car = mongoose.model('cars');
-
 /**
  * Throws error if error object is present.
  *

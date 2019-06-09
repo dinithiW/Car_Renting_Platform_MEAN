@@ -6,6 +6,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { from } from 'rxjs';
 import { AuthenticationService } from '../services/authentication.services';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './account-settings.component.html',

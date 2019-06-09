@@ -47,10 +47,7 @@ import { CarBookingComponent } from './car-booking/car-booking.component';
 import { CodeDialogComponent } from './register/register.component';
 import {SnackBarComponent } from './register/register.component';
 import { UpdateBookingComponent } from './bookings/update-booking/update-booking.component';
-
-
-
-
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +74,9 @@ import { UpdateBookingComponent } from './bookings/update-booking/update-booking
     // DateRangePickerComponent,
     CodeDialogComponent,
     SnackBarComponent,
-    UpdateBookingComponent
+    UpdateBookingComponent,
+    ResetPasswordComponent
+
   ],
   entryComponents: [CodeDialogComponent,SnackBarComponent,UpdateBookingComponent],
   exports: [ UpdateBookingComponent ],

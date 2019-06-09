@@ -1,0 +1,58 @@
+.container
+{
+	/* width: 600px;
+	height: 600px; */
+	background-color: rgba(5,22,21, 0.5);
+	
+	
+}
+.rows{
+	background-image:url("../../assets/images/AccountSettingBackground.jpg");
+	background-repeat:no-repeat; 
+	background-position:center; 
+	background-size:cover;
+	/* height: 900px;
+	width: 100%; */
+	padding-top:50px;
+	padding-bottom: 50px;
+	
+}
+
+.row{
+	margin-bottom: 10px;
+}
+
+/* .card-content{
+background-color: #26a69a;
+background-color: transparent;
+} */
+
+.card{
+	background-color: rgba(38, 166, 154, 0.5);
+}
+
+label{
+	color: white;
+}
+
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: white;
+} 
+
+.topic-row{
+	color: white;
+	font-size: 40px;
+	padding-left: 10px; 
+}
+
+.profPic{
+
+	background-color: rgba(38, 166, 154, 0.5);
+	border: 5px solid rgba(243, 243, 243 ,0.5);
+	width: 150px;
+	height: 150px;
+	border-radius: 3px;
+	text-align: center;
+	
+	
+}

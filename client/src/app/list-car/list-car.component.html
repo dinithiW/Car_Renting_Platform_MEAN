@@ -15,7 +15,7 @@
           <div class="row">
               <div class="input-field col s4">
                
-                <input type="text" class="form-control is-invalid" id="inputCarName"  formControlName="carName" placeholder="Car Name"  [ngClass]="{ 'is-invalid': submitted && f.carName.errors }"[(ngModel)]="oldCar.carName" required>
+                <input type="text" class="form-control" id="inputCarName" name="carName"  formControlName="carName" placeholder="Car Name"  [ngClass]="{ 'is-invalid': submitted && f.carName.errors }"[(ngModel)]="oldCar.carName" required>
                 <div *ngIf="submitted && f.carName.errors" class="invalid-feedback">
                   <div *ngIf="f.carName.errors.required">Car Name is required</div>
                 </div>
@@ -24,7 +24,7 @@
           
             <div class="input-field col s4">
               
-              <input type="text" class="form-control" id="inputCarYear"  formControlName="carYear" placeholder="Car Year" [ngClass]="{ 'is-invalid': submitted && f.carYear.errors }" [(ngModel)]="oldCar.carYear" required>
+              <input type="text" class="form-control" id="inputCarYear" name="carYear"  formControlName="carYear" placeholder="Car Year" [ngClass]="{ 'is-invalid': submitted && f.carYear.errors }" [(ngModel)]="oldCar.carYear" required>
               <div *ngIf="submitted && f.carYear.errors" class="invalid-feedback">
                 <div *ngIf="f.carYear.errors.required">Car Year is required</div>
               </div>
@@ -32,8 +32,8 @@
          
             <div class="input-field col s4">
             
-              <input type="number" class="form-control" id="inputCarPrice" formControlName="carPrice" placeholder="Car Price" [ngClass]="{ 'is-invalid': submitted && f.carPrice.errors }" [(ngModel)]="oldCar.carPrice" required>
-              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <input type="number" class="form-control" id="inputCarPrice" name="carPrice" formControlName="carPrice" placeholder="Car Price" [ngClass]="{ 'is-invalid': submitted && f.carPrice.errors }" [(ngModel)]="oldCar.carPrice" required>
+              <div *ngIf="submitted && f.carPrice.errors" class="invalid-feedback">
                 <div *ngIf="f.carPrice.errors.required">Rental Price is required</div>
                 <div *ngIf="f.carPrice.errors.pattern">Rental Price should be Number</div>
               </div>  
@@ -42,7 +42,7 @@
             <div class="row">
             <div class="input-field col s4">
               
-              <input type="text" class="form-control" id="inputCarDes" formControlName="carDescription" placeholder="Description" [ngClass]="{ 'is-invalid': submitted && f.carDescription.errors }"  [(ngModel)]="oldCar.description" required>
+              <input type="text" class="form-control" id="inputCarDes" name="carDescription" formControlName="carDescription" placeholder="Description" [ngClass]="{ 'is-invalid': submitted && f.carDescription.errors }"  [(ngModel)]="oldCar.description" required>
               <div *ngIf="submitted && f.carDescription.errors" class="invalid-feedback">
                 <div *ngIf="f.carDescription.errors.required">Car description is required</div>
               </div>  
@@ -50,7 +50,7 @@
           
             <div class="input-field col s4">
        
-              <input type="text" class="form-control" id="inputCarFea" formControlName="carFeatures" placeholder="Features" [ngClass]="{ 'is-invalid': submitted && f.carFeatures.errors }"  [(ngModel)]="oldCar.features" required>
+              <input type="text" class="form-control" id="inputCarFea" name="carFeatures" formControlName="carFeatures" placeholder="Features" [ngClass]="{ 'is-invalid': submitted && f.carFeatures.errors }"  [(ngModel)]="oldCar.features" required>
               <div *ngIf="submitted && f.carFeatures.errors" class="invalid-feedback">
                 <div *ngIf="f.carFeatures.errors.required">Car feature is required</div>
               </div>  
@@ -58,7 +58,7 @@
           
             <div class="input-field col s4">
             
-              <input type="number" class="form-control" id="inputDailyDistance" formControlName="carDailyDistance" placeholder="Daily Distance" [ngClass]="{ 'is-invalid': submitted && f.carDailyDistance.errors }"  [(ngModel)]="oldCar.dailyDistance" required>
+              <input type="number" class="form-control" id="inputDailyDistance" name="carDailyDistance" formControlName="carDailyDistance" placeholder="Daily Distance" [ngClass]="{ 'is-invalid': submitted && f.carDailyDistance.errors }"  [(ngModel)]="oldCar.dailyDistance" required>
               <div *ngIf="submitted && f.carDailyDistance.errors" class="invalid-feedback">
                 <div *ngIf="f.carDailyDistance.errors.required">Car feature is required</div>
                 <div *ngIf="f.carDailyDistance.errors.pattern">Daily diatance should be Number</div>
@@ -68,7 +68,7 @@
           <div class="row">
             <div class="input-field col s4">
            
-              <input type="text" class="form-control" id="inputFuelType" formControlName="carFuelType" placeholder="Fuel Type" [ngClass]="{ 'is-invalid': submitted && f.carFuelType.errors }"  [(ngModel)]="oldCar.fuelType" required>
+              <input type="text" class="form-control" id="inputFuelType"  name="carFuelType" formControlName="carFuelType" placeholder="Fuel Type" [ngClass]="{ 'is-invalid': submitted && f.carFuelType.errors }"  [(ngModel)]="oldCar.fuelType" required>
               <div *ngIf="submitted && f.carFuelType.errors" class="invalid-feedback">
                 <div *ngIf="f.carFuelType.errors.required">Fuel Type is required</div>
               </div>  
@@ -76,7 +76,7 @@
           
             <div class="input-field col s4">
    
-              <input type="number" class="form-control" id="inputDoorCount" formControlName="carDoorCount" placeholder="Door Count" [ngClass]="{ 'is-invalid': submitted && f.carDoorCount.errors }" [(ngModel)]="oldCar.doorCount" required>
+              <input type="number" class="form-control" id="inputDoorCount" name="carDoorCount" formControlName="carDoorCount" placeholder="Door Count" [ngClass]="{ 'is-invalid': submitted && f.carDoorCount.errors }" [(ngModel)]="oldCar.doorCount" required>
               <div *ngIf="submitted && f.carDoorCount.errors" class="invalid-feedback">
                 <div *ngIf="f.carDoorCount.errors.required">Door count is required</div>
                 <div *ngIf="f.carDoorCount.errors.pattern">Door count should be Number</div>
@@ -85,7 +85,7 @@
       
             <div class="input-field col s4">
 
-              <input type="number" class="form-control" id="inputSeatCount" formControlName="carSeatCount" placeholder="Seat Count" [ngClass]="{ 'is-invalid': submitted && f.carSeatCount.errors }"  [(ngModel)]="oldCar.seatCount" required>
+              <input type="number" class="form-control" id="inputSeatCount" name="carSeatCount" formControlName="carSeatCount" placeholder="Seat Count" [ngClass]="{ 'is-invalid': submitted && f.carSeatCount.errors }"  [(ngModel)]="oldCar.seatCount" required>
               <div *ngIf="submitted && f.carSeatCount.errors" class="invalid-feedback">
                 <div *ngIf="f.carSeatCount.errors.required">Seat count is required</div>
                 <div *ngIf="f.carSeatCount.errors.pattern">Seat count should be Number</div>
@@ -95,7 +95,7 @@
           <div class="row">
             <div class="input-field col s4">
 
-              <input type="text" class="form-control" id="inputAddress" formControlName="address" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }"  [(ngModel)]="oldCar.address" required>
+              <input type="text" class="form-control" id="inputAddress" name="address" formControlName="address" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }"  [(ngModel)]="oldCar.address" required>
               <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
                 <div *ngIf="f.address.errors.required">Address is required</div>
               </div>  
@@ -104,7 +104,7 @@
          
             <div class="input-field col s4">
    
-              <input type="text" class="form-control" id="inputCarCity" formControlName="city" placeholder="City" [ngClass]="{ 'is-invalid': submitted && f.city.errors }"  [(ngModel)]="oldCar.city" required>
+              <input type="text" class="form-control" id="inputCarCity" name="city" formControlName="city" placeholder="City" [ngClass]="{ 'is-invalid': submitted && f.city.errors }"  [(ngModel)]="oldCar.city" required>
               <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
                 <div *ngIf="f.city.errors.required">City is required</div>
               </div>  
@@ -112,7 +112,7 @@
           
             <div class="input-field col s4">
              
-              <input type="number" class="form-control" id="inputZip" formControlName="zip" placeholder="Zip Code" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }"  [(ngModel)]="oldCar.zip" required>
+              <input type="number" class="form-control" id="inputZip" name="zip" formControlName="zip" placeholder="Zip Code" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }"  [(ngModel)]="oldCar.zip" required>
               <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
                 <div *ngIf="f.zip.errors.required">Zip is required</div>
                 <div *ngIf="f.zip.errors.pattern">Zip should be Number</div>
@@ -132,7 +132,7 @@
               
               <div class="input-field col s12">
                   <button class="btn btn-custom left" type="submit">List Car</button>
-                  <button class="btn btn-custom left" type="submit">Clear</button>
+                  
               </div>
               
             </div>
